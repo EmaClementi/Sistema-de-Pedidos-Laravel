@@ -8,7 +8,7 @@
     <link rel="icon" href="{{ asset('img/icono.ico') }}">
 
     <!-- Estilos de bootstrap -->
-    <link rel="stylesheet" href="{{ mix ('css/app.css'}}" class="css">
+    <link rel="stylesheet" href="{{ mix ('css/app.css')}}" class="css">
 
     <!-- Estilos css generales -->
     <link href="{{ asset('css/base/css/general.css') }}" rel="stylesheet">

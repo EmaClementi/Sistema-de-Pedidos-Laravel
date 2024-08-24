@@ -24,11 +24,14 @@
 
     <form action="{{route('platos.store')}}" method="POST">
         @csrf
-        <label>Nombre<input type="text" name="nombre" value="{{old('nombre')}}"></label>
+        <label>Nombre: <input type="text" name="nombre" value="{{old('nombre')}}"></label>
         <br>
-        <label>Descripcion<input type="text" name="descripcion" value="{{old('descripcion')}}"></label>
         <br>
-        <label>Precio<input type="number" name="precio" value="{{old('precio')}}"></label>
+        <label>Descripcion: <input type="text" name="descripcion" value="{{old('descripcion')}}"></label>
+        <br>
+        <br>
+        <label>Precio: <input type="number" name="precio" value="{{old('precio')}}"></label>
+        <br>
         <br>
         <button type="submit">Crear Plato</button>
     </form>
