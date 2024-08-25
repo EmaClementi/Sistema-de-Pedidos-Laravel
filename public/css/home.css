@@ -14,7 +14,7 @@
     position: relative;
     width: 400px;
     height: 400px;
-    overflow: hidden; 
+    overflow: hidden;
     border-radius: 5px;
 }
 
@@ -36,6 +36,19 @@
     font-weight: bold;
     position: relative; 
 }
+
+.card span {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
 .card:hover img {
     transform: scale(1.1); 
 }
