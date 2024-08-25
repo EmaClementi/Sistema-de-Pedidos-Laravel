@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layout>
 
     
     <h1>Formulario para crear un Pedido</h1>
@@ -67,4 +67,4 @@
     </form>
     
     
-</x-app-layout>
+</x-layout>

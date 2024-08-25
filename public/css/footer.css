@@ -1,0 +1,19 @@
+.footer {
+    background-color: rgb(51, 177, 250);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 992px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 16px;
+}

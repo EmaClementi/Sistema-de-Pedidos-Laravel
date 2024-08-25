@@ -1,0 +1,19 @@
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column; /* Organiza el contenido de la página verticalmente */
+}
+
+main {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+}
+
