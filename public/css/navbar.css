@@ -1,5 +1,5 @@
 .header {
-    background-color: rgb(51, 177, 250);
+    background-color:rgb(250, 170, 51);
     height: 80px;
     width: 100%;
     top: 0;
@@ -31,4 +31,5 @@
 .contenedorLogo {
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }

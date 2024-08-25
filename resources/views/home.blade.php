@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Bienvenido al Sistema de Gestión de Pedidos</h1>
+    <h1 class="titulo">Bienvenido al Sistema de Gestión de Pedidos</h1>
 
     <div class="card-container">
         <div class="card">

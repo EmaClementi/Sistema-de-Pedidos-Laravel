@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Pedido')
+
+@section('content')
+
     <a href="{{route('pedidos.index')}}">Volver a pedidos</a>
 
     <h1>Id del Pedido: {{ $pedido->id}}</h1> 
@@ -34,5 +32,4 @@
         <button type="submit">Eliminar Pedido</button>
     </form>
 
-</body>
-</html>
+@endsection

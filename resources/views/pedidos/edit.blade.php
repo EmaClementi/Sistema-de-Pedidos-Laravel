@@ -1,4 +1,8 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('title', 'Modificar Pedido')
+
+@section('content')
 
     <h1>Formulario para crear un Pedido</h1>
 
@@ -31,5 +35,4 @@
         <button type="submit">Modificar Pedido</button>
     </form>
     
-
-</x-app-layout>
+@endsection

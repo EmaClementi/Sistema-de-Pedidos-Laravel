@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Clientes</title>
-</head>
-<body>
-    
+@extends('layouts.app')
+
+@section('title', 'Pedidos')
+
+@section('content')
     <h1>Todos los Pedidos</h1>
 
 
@@ -26,6 +21,5 @@
     <br>
     <br>
     {{ $pedidos->links()}}
-    
-</body>
-</html>    
+
+@endsection
