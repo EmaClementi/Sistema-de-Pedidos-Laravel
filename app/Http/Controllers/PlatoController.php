@@ -10,8 +10,8 @@ use App\Models\Plato;
 class PlatoController extends Controller
 {
     public function index(){
-        $platos = Plato::orderBy('id', 'desc')
-                        ->paginate(5);
+        $platos = Plato::orderBy('id', 'asc')
+                        ->paginate(6);
         return view('platos.index', compact('platos'));
     }
     public function show(Plato $plato){

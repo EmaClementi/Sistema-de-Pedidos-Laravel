@@ -2,35 +2,43 @@
 
 @section('title', 'Nuevo Plato')
 
-@section('content')
-    <h1>Formulario para crear un Plato</h1>
+@section('titulo', 'Agregar Nuevo Plato')
 
+@section('content')
+
+    <!-- Muestra los errores si los hay -->
     @if($errors->any())
-        <div>
-            <h2>Errores:</h2>
+        <div class="alert alert-danger">
+            <h4>Errores:</h4>
             <ul>
                 @foreach($errors->all() as $error)
-                    <li>
-                        {{$error}}
-                    </li>
+                    <li>{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
     @endif 
 
+    <div class="container mt-5">
+        <form action="{{ route('platos.store') }}" method="POST">
+            @csrf
 
-    <form action="{{route('platos.store')}}" method="POST">
-        @csrf
-        <label>Nombre: <input type="text" name="nombre" value="{{old('nombre')}}"></label>
-        <br>
-        <br>
-        <label>Descripcion: <input type="text" name="descripcion" value="{{old('descripcion')}}"></label>
-        <br>
-        <br>
-        <label>Precio: <input type="number" name="precio" value="{{old('precio')}}"></label>
-        <br>
-        <br>
-        <button type="submit">Crear Plato</button>
-    </form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre del Plato:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción del Plato:</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio del Plato:</label>
+                <input type="number" class="form-control" id="precio" name="precio" value="{{ old('precio') }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Crear Plato</button>
+        </form>
+    </div>
 
 @endsection

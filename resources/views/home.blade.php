@@ -2,13 +2,17 @@
 
 @section('title', 'Inicio')
 
+@section('titulo', 'Bienvenido al Sistema de Gestion de Pedidos')
+
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endpush
 
 @section('content')
+
+<h2 class="titulo-principal">¿Que desea Gestionar?</h2>
+    
 <div class="container">
-    <h1 class="titulo">Bienvenido al Sistema de Gestión de Pedidos</h1>
 
     <div class="card-container">
         <div class="card">
