@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Clientes</title>
-</head>
-<body>
-    
-    <h1>Todos los Clientes</h1>
+@extends('layouts.app')
 
-    <a href="{{route('clientes.create')}}">Nuevo Cliente</a>
+@section('title', 'Gestión de Clientes')
+
+@section('titulo', 'Clientes')
+
+@section('content')
+    
+    <a href="{{route('clientes.create')}}" class="btn btn-primary mb-3 d-block mx-auto">Nuevo Cliente</a>
 
     <ul>
         @foreach ($clientes as $cliente)
@@ -20,10 +16,45 @@
             </li>
         @endforeach  
     </ul>
+    
+    <h1>Lista de Clientes</h1>
+    <div class="table-responsive" style="min-height: 35vh">
+        <table class="table table-fixed">
+            <thead>
+                <tr>
+                    <th>Numero</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($clientes as $cliente)
+                    <tr>
+                        <td>{{ $cliente->id }}</td>
+                        <td>{{ $cliente->nombre }}</td>
+                        <td>{{ $cliente->apellido }}</td>
+                        <td>${{ $cliente->direccion }}</td>
+                        <td>${{ $cliente->Telefono }}</td>
+                        <td>
+                            <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">Editar</a>
+
+                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" class="d-inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este plato?')">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
     <a href="{{route('home')}}">Volver al Inicio</a>
     <br>
     <br>
-    {{ $clientes->links()}}
-    
-</body>
-</html>
+    {{ $clientes->links('pagination::bootstrap-4')}}
+</div>
+@endsection

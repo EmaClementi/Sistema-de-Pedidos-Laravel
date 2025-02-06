@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('base/css/general.css')}}">
-    <title>Crear Cliente</title>
-</head>
-<body>
-    
-    <h1>__("form_cliente")</h1>
+@extends('layouts.app')
+
+@section('title', 'Nuevo Cliente')
+
+@section('titulo', 'Agregar Nuevo Cliente')
+
+@section('content')
 
     @if($errors->any())
         <div>
@@ -24,23 +19,33 @@
         </div>
     @endif
 
-    <form action="{{route('clientes.store')}}" method="POST">
+<div class="container mt-5">
+    <form action="{{ route('clientes.store') }}" method="POST">
         @csrf
-        <label>Nombre: <input type="text" name="nombre" value="{{old('nombre')}}"></label>
-        <br>
-        <br>
-        <label>Apellido: <input type="text" name="apellido" value="{{old('apellido')}}"></label>
-        <br>
-        <br>
-        <label>Direccion: <input type="text" name="direccion" value="{{old('direccion')}}"></label>
-        <br>
-        <br>
-        <label>Telefono: <input type="text" name="telefono" value="{{old('telefono')}}"></label>
-        <br>
-        <br>
-        <button type="submit">Crear Cliente</button>
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre del Cliente:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" value="{{ old('apellido') }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Direccion:</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}"  placeholder="Ej: Av. Siempre Viva 742" 
+            pattern="[A-Za-z0-9\s,.-]+" >
+        </div>
+
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Telefono:</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" value="{{ old('telefono') }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Crear Cliente</button>
     </form>
+</div>
 
-
-</body>
-</html>
+@endsection
