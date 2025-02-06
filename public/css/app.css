@@ -7,6 +7,7 @@ html, body {
     flex-direction: column;
 }
 
+
 .titulo-pagina {
     text-align: center;
     font-family: 'Poppins', sans-serif; 
@@ -52,6 +53,14 @@ main {
 } */
 
 @media (max-width: 768px) {
+    .table-responsive {
+        width: 100vw; 
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+        position: relative;
+    }
     .titulo-pagina {
         font-size: 2.2rem;
     }
@@ -68,3 +77,5 @@ main {
     max-width: 200px;
     margin: 40px auto;
 }
+
+

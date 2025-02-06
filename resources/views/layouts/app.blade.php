@@ -20,7 +20,7 @@
     
     <h1 class="titulo-pagina">@yield('titulo', 'titulo')</h1>
     
-    <main class="container">
+    <main class="container-fluid">
         @yield('content')
     </main>
 
@@ -29,8 +29,8 @@
     </footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy2pH29JdmxX7zD63NfEXddldK06Wb8n6e2Kk3F7" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0A9Qmg5v7bS4g4t3t3Jl6cCuH3lLsFv52eM9IcSk9S9kE5wF" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0A9Qmg5v7bS4g4t3t3Jl6cCuH3lLsFv52eM9IcSk9S9kE5wF" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

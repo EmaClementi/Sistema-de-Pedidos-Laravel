@@ -70,7 +70,7 @@
                                 <input type="number" name="cantidades[{{ $plato->id }}]" value="1" min="1" class="form-control" style="width: 60px;" disabled>
                             </td>
                             <td>
-                                <input type="checkbox" name="platos[]" value="{{ $plato->id }}" class="plato-selector">
+                                <input type="checkbox" name="platos[]" value="{{ $plato->id }}" class="plato-selector" style="width: 2rem; height: 2rem">
                             </td>
                         </tr>
                     @endforeach

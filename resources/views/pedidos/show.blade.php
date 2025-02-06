@@ -2,43 +2,63 @@
 
 @section('title', 'Pedido')
 
+@section('titulo', 'Detalles del Pedido')
+
 @section('content')
 
-    <a href="{{route('pedidos.index')}}">Volver a pedidos</a>
+    <div class="container mt-4">
+        <a href="{{route('pedidos.index')}}" class="btn btn-secondary mb-3">Volver a pedidos</a>
 
-    <form action="{{route('pedidos.update', $pedido->id)}}" method="POST">
-        @method("PUT")
-        @csrf
-        <label>Nombre del Cliente {{ $pedido->cliente->nombre }}</label>
-        <br>
-        <label>Fecha <input type="date" name="fecha" value="{{ old('fecha', $pedido->fecha) }}"></label>
-        <br>
-        <label>Forma de Pago <input type="text" name="forma_de_pago" value="{{ old('forma_de_pago', $pedido->forma_de_pago) }}"></label>
-        <br>
-        <label>Total <input type="number" name="total" value="{{ old('total', $pedido->total) }}"></label>
-        <br>
-        <label>Estado <input type="text" name="estado" value="{{ old('estado', $pedido->estado) }}"></label>
-        <br>
-        <button type="submit">Modificar Pedido</button>
-    </form>
+        <div class="card">
+            <div class="card-header">
+                <h3>Detalles del Pedido</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Nombre del Cliente:</strong> {{ $pedido->cliente->nombre }}</p>
+                <p><strong>Fecha:</strong> {{$pedido->fecha}}</p>
+                <p><strong>Forma de Pago:</strong> {{$pedido->forma_de_pago }}</p>
+                <p><strong>Total:</strong> {{ $pedido->total }}</p>
+                <p><strong>Estado</strong> {{ $pedido->estado }}</p>
 
-    <h2>Platos:</h2>
-    <ul>
-        @foreach ($pedido->detalle_pedido as $detalle)
-            <li>
-                {{ $detalle->plato->nombre }} - Cantidad: {{ $detalle->cantidad }} - Precio: ${{ $detalle->plato->precio }}
-            </li>
-        @endforeach
-    </ul>
+                <table class="table table-fixed">
+                    <thead>
+                        <tr>
+                            <th>Plato</th>
+                            <th>Descripcion</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
 
-    <p>Total: ${{ $pedido->total }}</p>
-    
-    <a href="{{route('pedidos.edit', $pedido->id)}}">Editar Pedido</a>
+                    <tbody>
+                        @foreach ($pedido->detalle_pedido as $detalle)
+                            <tr>
+                                <td>{{ $detalle->plato->nombre }}</td>
+                                <td>{{ $detalle->plato->descripcion }}</td>
+                                <td>{{ $detalle->cantidad }}</td>
+                                <td>${{ $detalle->plato->precio }}</td>
+                            </tr>
+                        @endforeach
 
-    <form action="{{route('pedidos.destroy', $pedido->id)}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit">Eliminar Pedido</button>
-    </form>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end fs-3" style="width: 93%;">
+                    <strong><p class="me-3">Total:</p></strong>
+                    <p>${{ $pedido->total}}</p>
+                </div>
+
+
+            </div>
+            <div class="card-footer">
+                <a href="{{route('pedidos.edit', $pedido->id)}}" class="btn btn-warning">Editar Pedido</a>
+
+                <form action="{{route('pedidos.destroy', $pedido->id)}}" method="POST" class="d-inline-block float-end">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Eliminar Pedido</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 @endsection
