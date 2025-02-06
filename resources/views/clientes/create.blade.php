@@ -35,13 +35,13 @@
 
         <div class="mb-3">
             <label for="direccion" class="form-label">Direccion:</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}"  placeholder="Ej: Av. Siempre Viva 742" 
+            <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}" placeholder="Ej: Av. Siempre Viva 742" 
             pattern="[A-Za-z0-9\s,.-]+" >
         </div>
 
         <div class="mb-3">
             <label for="telefono" class="form-label">Telefono:</label>
-            <input type="tel" class="form-control" id="telefono" name="telefono" value="{{ old('telefono') }}">
+            <input type="number" class="form-control" id="telefono" name="telefono" value="{{ old('telefono') }}">
         </div>
 
         <button type="submit" class="btn btn-primary">Crear Cliente</button>

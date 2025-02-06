@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Modificar Cliente</title>
-</head>
-<body>
-    
-    <h1>Formulario para Modificar un Cliente</h1>
+@extends('layouts.app')
 
+@section('title', 'Modificar Cliente')
+
+@section('titulo', 'Modificar un Cliente')
+
+@section('content')
+    
     @if($errors->any())
         <div>
             <h2>Errores:</h2>
@@ -23,19 +19,32 @@
         </div>
     @endif
 
-    <form action="{{route('clientes.update', $cliente->id)}}" method="POST">
-        @method('PUT')
-        @csrf
-        <label>Nombre<input type="text" name="nombre" value="{{old('nombre', $cliente->nombre)}}"></label>
-        <br>
-        <label>Apellido<input type="text" name="apellido" value="{{old('apellido', $cliente->apellido)}}"></label>
-        <br>
-        <label>Direccion<input type="text" name="direccion" value="{{old('direccion', $cliente->direccion)}}"></label>
-        <br>
-        <label>Telefono<input type="text" name="telefono" value="{{old('telefono', $cliente->telefono)}}"></label>
-        <br>
-        <button type="submit">Modificar Cliente</button>
-    </form>
+    <div class="container mt-5">
+        <form action="{{route('clientes.update', $cliente->id)}}" method="POST">
+            @method('PUT')
+            @csrf
 
-</body>
-</html>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre: </label>
+                <input type="text" name="nombre" class="form-control" id="nombre" value="{{old('nombre', $cliente->nombre)}}">
+            </div>
+               
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido:</label>
+                <input type="text" name="apellido" class="form-control" id="apellido" value="{{old('apellido', $cliente->apellido)}}">
+            </div>
+           
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Direccion:</label>
+                <input type="text" name="direccion" class="form-control" id="direccion" value="{{old('direccion', $cliente->direccion)}}">
+            </div>
+            
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Telefono:</label>
+                <input type="text" name="telefono" class="form-control" id="telefono" value="{{old('telefono', $cliente->telefono)}}">
+            </div>
+          
+            <button type="submit" class="btn btn-primary">Modificar Cliente</button>
+        </form>
+    </div>
+@endsection

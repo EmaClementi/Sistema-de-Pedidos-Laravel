@@ -8,7 +8,7 @@
     
     <a href="{{route('clientes.create')}}" class="btn btn-primary mb-3 d-block mx-auto">Nuevo Cliente</a>
 
-    <ul>
+  {{-- <ul>
         @foreach ($clientes as $cliente)
             <li>
                 <a href="{{route('clientes.show', $cliente->id)}}"> Cliente con ID: {{ $cliente->id }}</a>
@@ -16,7 +16,7 @@
             </li>
         @endforeach  
     </ul>
-    
+    --}}
     <h1>Lista de Clientes</h1>
     <div class="table-responsive" style="min-height: 35vh">
         <table class="table table-fixed">
