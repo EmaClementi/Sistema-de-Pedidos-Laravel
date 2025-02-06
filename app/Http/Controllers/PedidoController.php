@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Plato;
 use App\Models\Pedido;
 use App\Http\Requests\StorePedidoRequest;
@@ -12,13 +13,16 @@ use App\Models\Detalle_pedido;
 class PedidoController extends Controller
 {
     public function index(){
-        $pedidos = Pedido::orderBy('id', 'desc')
-                        ->paginate(5);
-        return view('pedidos.index', compact('pedidos'));
+        $pedidos = Pedido::with('cliente')->orderBy('id', 'desc')
+                        ->paginate(6);
+
+        $estados = ['En Proceso', 'Listo para Entregar', 'En Camino', 'Entregado'];
+
+        return view('pedidos.index', compact('pedidos', 'estados'));
     }
     public function show(Pedido $pedido){
 
-
+        
         //compact('id');  ['id' => $id]
         $pedido = Pedido::with('detalle_pedido.plato')->find($pedido->id);
 
@@ -33,6 +37,7 @@ class PedidoController extends Controller
     }
     public function store(StorePedidoRequest $request){
 
+        // dd($request->all());
         $pedido = Pedido::create([
             'cliente_id' => $request->cliente_id,
             'fecha' => $request->fecha,
@@ -73,14 +78,22 @@ class PedidoController extends Controller
         return redirect()->route('pedidos.index');
     }
     public function edit(Pedido $pedido){
-        // $pedido = Pedido::find($id);
 
-        return view('pedidos.edit', compact('pedido'));
+        $detallePedidos = $pedido->detalle_pedido()->with('plato')->get();
+
+        $formasDePago = ['Efectivo', 'Transferencia', 'Tarjeta'];
+
+        $clientes = Cliente::all();
+        $platos = Plato::all();
+        $platos_seleccionados = Detalle_pedido::where('pedido_id', $pedido->id)->pluck('plato_id')->toArray();
+
+        return view('pedidos.edit', compact('pedido', 'clientes', 'platos', 'detallePedidos', 'formasDePago'));
     }
+    
     public function update(UpdatePedidoRequest $request, Pedido $pedido){
         // $pedido = Pedido::find($pedido);
         
-
+        
         // $request->validate([
         //     'cliente_id' => 'required',
         //     'fecha' => 'required',
@@ -88,8 +101,14 @@ class PedidoController extends Controller
         //     'total' => 'required',
         //     'estado' => 'required',
         // ]);
-        
-        $pedido->update($request->validated());
+        dd($request->all());
+        if ($request->has('estado')) {
+            $pedido->update([
+                'estado' => $request->estado
+            ]);
+        } else {
+            $pedido->update($request->validated());
+        }
 
         // $pedido->cliente_id = $request->cliente_id;
         // $pedido->fecha = $request->fecha;
@@ -98,13 +117,28 @@ class PedidoController extends Controller
         // $pedido->estado = $request->estado;
 
         // $pedido->save();
-
+        
         return redirect()->route('pedidos.show', $pedido);
     }
+    public function updateEstado(Request $request, $id){
+
+    $pedido = Pedido::findOrFail($id);
+
+    $request->validate([
+        'estado' => 'required|in:En Proceso,En Camino,Entregado,Listo para Entregar', 
+    ]);
+
+    $pedido->estado = $request->estado;
+    $pedido->save();
+
+
+    return redirect()->route('pedidos.index');
+}
     public function destroy(Pedido $pedido){
         // $pedido = Pedido::find($pedido);
         $pedido->delete();
 
         return redirect('/pedidos');
     }
+    
 }

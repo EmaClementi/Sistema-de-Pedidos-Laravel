@@ -32,21 +32,21 @@ class Pedido extends Model
         return $this->belongsTo(Cliente::class);
     }
     // 
-    protected function estado(): Attribute {
+    // protected function estado(): Attribute {
 
-        return Attribute::make(
-            set: function($value){ // Este metodo se ejecuta cuando lo voy a almacenar en la BD.
-                return strtolower($value); // ESTE METODO SET SE LO CONOCE COMO MUTADORES
-                //Esta funcion lo qe hace es tomar el atributo estado,
-    // y convertirlo todo a minuscula, por si el usuario ingresa campos en mayuscula.
-            },
-            get: function($value){ // Este metodo se ejecuta cuando lo intento recuperar de la BD
-                return ucfirst($value); //este tipo de metodo se llama ACCESORES.
-                // lo que hace es modificar la primera letra para que se muestre en mayuscula
-                // pero no al mostrarlo, en la base de datos sigue estando en minuscula
-            }
-        );
-    }
+    //     return Attribute::make(
+    //         set: function($value){ // Este metodo se ejecuta cuando lo voy a almacenar en la BD.
+    //             return strtolower($value); // ESTE METODO SET SE LO CONOCE COMO MUTADORES
+    //             //Esta funcion lo qe hace es tomar el atributo estado,
+    // // y convertirlo todo a minuscula, por si el usuario ingresa campos en mayuscula.
+    //         },
+    //         get: function($value){ // Este metodo se ejecuta cuando lo intento recuperar de la BD
+    //             return ucfirst($value); //este tipo de metodo se llama ACCESORES.
+    //             // lo que hace es modificar la primera letra para que se muestre en mayuscula
+    //             // pero no al mostrarlo, en la base de datos sigue estando en minuscula
+    //         }
+    //     );
+    // }
     // public function getRouteKeyName()
     // {
     //     return 'slug';

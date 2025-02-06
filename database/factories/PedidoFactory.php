@@ -22,7 +22,7 @@ class PedidoFactory extends Factory
             'fecha' => $this->faker->date(),
             'forma_de_pago' => $this->faker->randomElement(['Efectivo', 'Tarjeta', 'Transferencia']),
             'total' => $this->faker->numberBetween(1000, 30000),
-            'estado' => $this->faker->randomElement(['pendiente', 'procesado', 'entregado', 'cancelado']),
+            'estado' => $this->faker->randomElement(['En Proceso', 'Listo para Entregar', 'En Camino', 'Entregado']),
         ];
     }
 }

@@ -25,12 +25,14 @@ class StorePedidoRequest extends FormRequest
             'cliente_id' => 'required|exists:clientes,id',
             'fecha' => 'required|date',
             'forma_de_pago' => 'required|max:50',
-            'platos' => 'required|array',
+            'platos' => 'nullable|array',
             'platos.*' => 'exists:platos,id',
-            'cantidades' => 'required|array',
-            'cantidades.*' => 'integer|min:1',
+            'cantidades.*' => 'required_if:platos.*,.|integer|min:1',
         ];
     }
+    
+    
+    
     public function messages(){
         return [
             'cliente_id.required' => 'El id del cliente es requerido',

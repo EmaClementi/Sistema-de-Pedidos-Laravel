@@ -26,7 +26,7 @@ class UpdatePedidoRequest extends FormRequest
             'fecha' => 'required|date',
             'forma_de_pago' => 'required|max:50',
             'total' => 'required|numeric',
-            'estado' => 'required|max:50|in:En Proceso,En Camino,Entregado',
+            'estado' => 'required|max:50|in:En Proceso,Listo para Entregar,En Camino,Entregado',
         ];
     }
 }

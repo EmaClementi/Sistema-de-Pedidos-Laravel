@@ -12,6 +12,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('pedidos', PedidoController::class);
 
+Route::patch('/pedidos/{id}/estado', [PedidoController::class, 'updateEstado'])
+    ->name('pedidos.updateEstado');
+
 Route::resource('clientes', ClienteController::class);
 
 Route::resource('platos', PlatoController::class);

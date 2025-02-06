@@ -8,8 +8,8 @@
 
         <a href="{{ route('platos.create') }}" class="btn btn-primary mb-3 d-block mx-auto">Nuevo Plato</a>
 
-        <div class="table-responsive" style="min-height: 35vh">
-            <table class="table table-fixed">
+        <div class="table-responsive" style="min-height: 35vh; min-width: 80%">
+            <table class="table table-fixed" >
                 <thead>
                     <tr>
                         <th>Numero</th>

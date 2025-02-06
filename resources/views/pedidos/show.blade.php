@@ -6,12 +6,21 @@
 
     <a href="{{route('pedidos.index')}}">Volver a pedidos</a>
 
-    <h1>Id del Pedido: {{ $pedido->id}}</h1> 
-    <p>Id del Cliente: {{ $pedido->cliente_id}}</p> 
-    <p>Fecha del Pedido: {{ $pedido->fecha}}</p> 
-    <p>Forma de Pago: {{ $pedido->forma_de_pago}}</p> 
-    <p>Total: {{ $pedido->total}}</p> 
-    <p>Estado del Pedido: {{ $pedido->estado}}</p>
+    <form action="{{route('pedidos.update', $pedido->id)}}" method="POST">
+        @method("PUT")
+        @csrf
+        <label>Nombre del Cliente {{ $pedido->cliente->nombre }}</label>
+        <br>
+        <label>Fecha <input type="date" name="fecha" value="{{ old('fecha', $pedido->fecha) }}"></label>
+        <br>
+        <label>Forma de Pago <input type="text" name="forma_de_pago" value="{{ old('forma_de_pago', $pedido->forma_de_pago) }}"></label>
+        <br>
+        <label>Total <input type="number" name="total" value="{{ old('total', $pedido->total) }}"></label>
+        <br>
+        <label>Estado <input type="text" name="estado" value="{{ old('estado', $pedido->estado) }}"></label>
+        <br>
+        <button type="submit">Modificar Pedido</button>
+    </form>
 
     <h2>Platos:</h2>
     <ul>
