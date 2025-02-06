@@ -18,6 +18,10 @@ Route::resource('platos', PlatoController::class);
 
 Route::resource('detalle-pedido', Detalle_pedidoController::class);
 
+Route::view('/nosotros', 'nosotros')->name('nosotros');
+
+Route::view('/contactos', 'contactos')->name('contactos');
+
 // Route::get('/pedidos', [PedidoController::class, 'index'])
 //     ->name('pedidos.index');
 
