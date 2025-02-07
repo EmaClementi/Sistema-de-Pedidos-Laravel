@@ -26,6 +26,8 @@
                         </div>
                         @if (Route::has('login'))
                             <nav class="-mx-3 flex flex-1 justify-end">
+                                <h1>{{ __('messages.welcome') }}</h1>
+                                <p>{{ __('messages.language_changed') }}</p>
                                 @auth
                                     <a
                                         href="{{ url('/dashboard') }}"

@@ -16,6 +16,14 @@
 
     <nav>
         <x-navbar />
+        <div>
+            <a href="?lang=es" class="btn btn-secondary mb-3">
+                <img src="{{ asset('img/banderaArg.png') }}" alt="Español" width="30">
+            </a>
+            <a href="?lang=en" class="btn btn-secondary mb-3">
+                <img src="{{ asset('img/banderaEEUU.png') }}" alt="English" width="30">
+            </a>
+        </div>
     </nav>
     
     <h1 class="titulo-pagina">@yield('titulo', 'titulo')</h1>
