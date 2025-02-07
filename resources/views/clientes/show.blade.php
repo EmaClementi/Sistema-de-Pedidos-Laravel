@@ -1,28 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cliente por ID</title>
-</head>
-<body>
-    
-    <a href="{{route('clientes.index')}}">Volver a Clientes</a>
+@extends('layouts.app')
 
-    <p>Id del Cliente: {{$cliente->id }}</p>
-    <p>Nombre: {{$cliente->nombre}} </p>
-    <p>Apellido: {{$cliente->apellido}}</p>
-    <p>Direccion: {{$cliente->direccion}}</p>
-    <p>Telefono: {{$cliente->telefono}}</p>
+@section('title', 'Cliente')
 
-    <a href="{{route('clientes.edit', $cliente->id)}}">Modificar Datos</a>
+@section('titulo', 'Cliente')
 
-    <form action="{{route('clientes.destroy', $cliente->id)}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit">Eliminar Cliente</button>
-    </form>
+@section('content')
 
-</body>
-</html>
+    <div class="container mt-4">
+        <a href="{{route('clientes.index')}}" class="btn btn-secondary mb-3">Volver a Clientes</a>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>Detalles del Cliente</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Id del Cliente:</strong> {{$cliente->id }}</p>
+                <p><strong>Nombre:</strong> {{$cliente->nombre}} </p>
+                <p><strong>Apellido:</strong> {{$cliente->apellido}}</p>
+                <p><strong>Direccion:</strong> {{$cliente->direccion}}</p>
+                <p><strong>Telefono:</strong> {{$cliente->telefono}}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{{route('clientes.edit', $cliente->id)}}" class="btn btn-secondary mb-3">Modificar Datos</a>
+
+                <form action="{{route('clientes.destroy', $cliente->id)}}" method="POST" class="d-inline-block float-end">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este cliente?')">Eliminar Cliente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

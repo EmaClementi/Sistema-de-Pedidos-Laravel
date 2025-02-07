@@ -17,7 +17,7 @@
         @endforeach  
     </ul>
     --}}
-    <h1>Lista de Clientes</h1>
+   
     <div class="table-responsive" style="min-height: 35vh">
         <table class="table table-fixed">
             <thead>
@@ -35,15 +35,15 @@
                         <td>{{ $cliente->id }}</td>
                         <td>{{ $cliente->nombre }}</td>
                         <td>{{ $cliente->apellido }}</td>
-                        <td>${{ $cliente->direccion }}</td>
-                        <td>${{ $cliente->Telefono }}</td>
+                        <td>{{ $cliente->direccion }}</td>
+                        <td>{{ $cliente->telefono }}</td>
                         <td>
                             <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">Editar</a>
 
                             <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este plato?')">Eliminar</button>
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este cliente')">Eliminar</button>
                             </form>
                         </td>
                     </tr>
