@@ -22,11 +22,12 @@ class UpdatePedidoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cliente_id' => 'required|numeric',
             'fecha' => 'required|date',
-            'forma_de_pago' => 'required|max:50',
-            'total' => 'required|numeric',
-            'estado' => 'required|max:50|in:En Proceso,Listo para Entregar,En Camino,Entregado',
+            'forma_de_pago' => 'required|string',
+            'platos' => 'nullable|array',
+            'platos.*' => 'exists:platos,id',
+            'cantidades' => 'nullable|array',
+            'cantidades.*' => 'integer|min:1',
         ];
     }
 }

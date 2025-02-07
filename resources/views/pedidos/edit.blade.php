@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <h1>Formulario para Editar un Pedido</h1>
+    <h1>Editar un Pedido</h1>
 
     @if($errors->any())
     <div>
@@ -65,6 +65,7 @@
                         <th>Plato</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
+                        <th>Seleccionar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,27 +73,40 @@
                         <tr>
                             <td>{{ $plato->nombre }}</td>
                             <td>${{ $plato->precio }}</td>
-                            <td>
-                                <!-- Buscamos si el plato existe en los detallePedidos y mostramos su cantidad -->
+                            
                                 @php
                                     $detallePedido = $detallePedidos->firstWhere('plato_id', $plato->id);
                                 @endphp
-        
+                            
+                            <td>
                                 <input type="number" name="cantidades[{{ $plato->id }}]" 
-                                       value="{{ $detallePedido ? $detallePedido->cantidad : 0 }}" 
+                                       value="{{ $detallePedido ? $detallePedido->cantidad : 1 }}" 
                                        min="1" 
-                                       class="form-control" 
+                                       class="form-control cantidad-input"
                                        style="width: 60px"
                                        {{ $detallePedido ? '' : 'disabled' }}>
-        
+                            </td>
+                            <td>
                                 <input type="checkbox" name="platos[]" value="{{ $plato->id }}" 
                                        class="plato-selector" 
-                                       {{ $detallePedido ? 'checked' : '' }}>
+                                       {{ $detallePedido ? 'checked' : '' }} style="width: 2rem; height: 2rem">
                             </td>
                         </tr>
                     @endforeach
-                    
                 </tbody>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            document.querySelectorAll('.plato-selector').forEach(checkbox => {
+                                checkbox.addEventListener('change', function () {
+                                    let inputCantidad = this.closest('tr').querySelector('.cantidad-input');
+                                    inputCantidad.disabled = !this.checked;
+                                    if (this.checked) {
+                                        inputCantidad.value = 1;
+                                    }
+                                });
+                            });
+                        });
+                    </script>
             </table>
             
         </div>

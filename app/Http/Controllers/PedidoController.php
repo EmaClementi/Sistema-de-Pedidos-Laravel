@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Plato;
 use App\Models\Pedido;
@@ -91,32 +92,30 @@ class PedidoController extends Controller
     }
     
     public function update(UpdatePedidoRequest $request, Pedido $pedido){
-        // $pedido = Pedido::find($pedido);
-        
-        
-        // $request->validate([
-        //     'cliente_id' => 'required',
-        //     'fecha' => 'required',
-        //     'forma_de_pago' => 'required',
-        //     'total' => 'required',
-        //     'estado' => 'required',
-        // ]);
-        dd($request->all());
-        if ($request->has('estado')) {
-            $pedido->update([
-                'estado' => $request->estado
-            ]);
-        } else {
-            $pedido->update($request->validated());
+
+        $pedido->update([
+            'fecha' => $request->fecha,
+            'forma_de_pago' => $request->forma_de_pago,
+        ]);
+    
+        $pedido->detalle_pedido()->delete(); 
+    
+        if ($request->has('platos')) {
+            foreach ($request->platos as $platoId) {
+                $cantidad = $request->cantidades[$platoId] ?? 1; 
+    
+                $pedido->detalle_pedido()->create([
+                    'plato_id' => $platoId,
+                    'cantidad' => $cantidad,
+                ]);
+            }
         }
-
-        // $pedido->cliente_id = $request->cliente_id;
-        // $pedido->fecha = $request->fecha;
-        // $pedido->forma_de_pago = $request->forma_de_pago;
-        // $pedido->total = $request->total;
-        // $pedido->estado = $request->estado;
-
-        // $pedido->save();
+    
+        $total = $pedido->detalle_pedido()->join('platos', 'detalle_pedidos.plato_id', '=', 'platos.id')
+            ->sum(DB::raw('detalle_pedidos.cantidad * platos.precio'));
+    
+        $pedido->update(['total' => $total]);
+    
         
         return redirect()->route('pedidos.show', $pedido);
     }
