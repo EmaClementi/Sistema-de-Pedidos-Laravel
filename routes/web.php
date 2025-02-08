@@ -7,6 +7,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PlatoController;
 use App\Models\Pedido;
+use App\Http\Controllers\LanguageController;
+use Illuminate\Support\Facades\App;
+
+//Route::get('lang/{locale}', 'LanguageController@set_lang');
+Route::get('change_language/{lang}',  [LanguageController::class, 'change_language'])->name('change.language');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

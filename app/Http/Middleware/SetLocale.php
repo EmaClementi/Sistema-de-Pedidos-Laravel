@@ -5,19 +5,25 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
-class SetLocale
+class LanguageMiddleware
 {
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        // Obtener el idioma de la sesión o usar un predeterminado (español)
-        $locale = $request->query('lang', Session::get('locale', 'es'));
+        // Verifica si el idioma fue enviado como parámetro en la URL
+        if ($request->has('lang')) {
+            $lang = $request->input('lang');
 
-        // Guardar el idioma en la sesión
-        Session::put('locale', $locale);
+            // Guarda el idioma en la sesión
+            Session::put('lang', $lang);
 
-        // Establecer el idioma para la aplicación
-        App::setLocale($locale);
+            // Establece el idioma en la aplicación
+            App::setLocale($lang);
+        } elseif (Session::has('lang')) {
+            // Usa el idioma almacenado en la sesión si no hay parámetro en la URL
+            App::setLocale(Session::get('lang'));
+        }
 
         return $next($request);
     }

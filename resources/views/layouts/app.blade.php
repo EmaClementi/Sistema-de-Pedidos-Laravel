@@ -13,14 +13,14 @@
     @stack('styles')
 </head>
 <body>
-
+<!--?lang=en// {( url('locale/en'))}-->
     <nav>
         <x-navbar />
-        <div>
-            <a href="?lang=es" class="btn btn-secondary mb-3">
+        <div class="d-flex justify-content-end gap-2 my-3">
+            <a href="{{ route('change.language', ['lang' => 'es']) }}" class="btn btn-secondary mb-3">
                 <img src="{{ asset('img/banderaArg.png') }}" alt="Español" width="30">
             </a>
-            <a href="?lang=en" class="btn btn-secondary mb-3">
+            <a href="{{ route('change.language', ['lang' => 'en']) }}" class="btn btn-secondary mb-3">
                 <img src="{{ asset('img/banderaEEUU.png') }}" alt="English" width="30">
             </a>
         </div>
