@@ -13,17 +13,15 @@
     @stack('styles')
 </head>
 <body>
-<!--?lang=en// {( url('locale/en'))}-->
     <nav>
         <x-navbar />
-        <div class="d-flex justify-content-end gap-2 my-3">
-            <a href="{{ route('change.language', ['lang' => 'es']) }}" class="btn btn-secondary mb-3">
-                <img src="{{ asset('img/banderaArg.png') }}" alt="Español" width="30">
-            </a>
-            <a href="{{ route('change.language', ['lang' => 'en']) }}" class="btn btn-secondary mb-3">
-                <img src="{{ asset('img/banderaEEUU.png') }}" alt="English" width="30">
-            </a>
-        </div>
+        <form action="{{ route('locale.change') }}" method="POST">
+            @csrf
+            <select name="locale" onchange="this.form.submit()">
+                <option value="es"{{ app()->getlocale() == 'es' ? ' selected' : '' }}>Español</option>
+                <option value="en"{{ app()->getlocale() == 'en' ? ' selected' : '' }}>English</option>
+            </select>
+        </form>
     </nav>
     
     <h1 class="titulo-pagina">@yield('titulo', 'titulo')</h1>

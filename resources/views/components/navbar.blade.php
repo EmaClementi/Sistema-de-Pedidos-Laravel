@@ -14,13 +14,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">{{ __('inicio') }}</a>
+                        <a class="nav-link" href="{{ route('home') }}">{{__('messages.home')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('nosotros') }}">{{ __('nosotros') }}</a>
+                        <a class="nav-link" href="{{ route('nosotros') }}">{{ __('messages.about_us')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contactos') }}">{{ __('contacto') }}</a>
+                        <a class="nav-link" href="{{ route('contactos') }}">{{ __('messages.contact')}}</a>
                     </li>
                 </ul>
             </div>
