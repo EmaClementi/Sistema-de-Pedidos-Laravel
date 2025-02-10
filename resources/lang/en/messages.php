@@ -75,4 +75,9 @@ return [
     'transfer' => 'Transfer',
     'card' => 'Card',
     'confirm_order' => 'Confirm Order',
+    'confirmation' => 'Confirmation',
+    'close' => 'Close',
+    'cancel' => 'Cancel',
+    'confirm' => 'Confirm',
+    'delete_confirmation' => 'Are you sure you want to delete :item?',
 ];

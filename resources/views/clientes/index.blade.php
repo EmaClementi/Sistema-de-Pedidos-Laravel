@@ -39,12 +39,19 @@
                         <td>{{ $cliente->telefono }}</td>
                         <td>
                             <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">{{ __('messages.edit')}}</a>
-
-                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" class="d-inline-block">
+                            
+                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" id="formEliminarCliente" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este cliente')">{{ __('messages.delete')}}</button>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.client')]) }}', '#formEliminarCliente')">
+                                    {{ __('messages.delete') }}
+                                </button>
                             </form>
+                            
+                        
+                            <x-modal-confirmacion :message="__('messages.delete_confirmation', ['item' => __('messages.client')])" :action="route('clientes.destroy', $cliente->id)" />
+
+                            
                         </td>
                     </tr>
                 @endforeach

@@ -19,6 +19,11 @@ return [
     'unexpected_error' => 'Ocurrió un error inesperado.',
     'fix_errors' => 'Por favor, corrija los errores a continuación.',
     'saving_error' => 'Error al guardar los datos.',
+    'confirmation' => 'Confirmación',
+    'close' => 'Cerrar',
+    'cancel' => 'Cancelar',
+    'confirm' => 'Confirmar',
+    'delete_confirmation' => '¿Estás seguro que deseas eliminar ":item"?',
 
 
      // Gestión de Platos
