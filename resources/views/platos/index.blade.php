@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
-@section('title', 'Gestión de Platos')
+@section('title', __('messages.new_dish'))
 
-@section('titulo', 'Platos')
+@section('titulo',  __('messages.dishes'))
 
 @section('content')
 
-        <a href="{{ route('platos.create') }}" class="btn btn-primary mb-3 d-block mx-auto">Nuevo Plato</a>
+        <a href="{{ route('platos.create') }}" class="btn btn-primary mb-3 d-block mx-auto">{{ __('messages.new_dish')}}</a>
 
         <div class="table-responsive" style="min-height: 35vh; min-width: 80%">
             <table class="table table-fixed" >
                 <thead>
                     <tr>
-                        <th>Numero</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Acciones</th>
+                        <th>{{ __('messages.number')}}</th>
+                        <th>{{ __('messages.name')}}</th>
+                        <th>{{ __('messages.description')}}</th>
+                        <th>{{ __('messages.price')}}</th>
+                        <th>{{ __('messages.actions')}}</th>
                     </tr>
                 </thead>
                 <tbody>

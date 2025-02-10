@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Modificar Plato')
+@section('title', __('messages.modify_dish'))
 
-@section('titulo', 'Modificar un Plato')
+@section('titulo', __('messages.modify_dish'))
 
 @section('content')
     
@@ -26,21 +26,21 @@
             
     
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
+                <label for="nombre" class="form-label">{{ __('messages.name')}}</label>
                 <input type="text" id="nombre" name="nombre" class="form-control" value="{{old('nombre', $plato->nombre)}}">
             </div>
             
             <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción</label>
+                <label for="descripcion" class="form-label">{{ __('messages.description')}}</label>
                 <input type="text" id="descripcion" name="descripcion" class="form-control" value="{{old('descripcion', $plato->descripcion)}}">
             </div>
             
             <div class="mb-3">
-                <label for="precio" class="form-label">Precio</label>
+                <label for="precio" class="form-label">{{ __('messages.price')}}</label>
                 <input type="number" id="precio" name="precio" class="form-control" value="{{old('precio', $plato->precio)}}">
             </div>
             
-            <button type="submit" class="btn btn-primary">Modificar Plato</button>
+            <button type="submit" class="btn btn-primary">{{__('messages.modify_dish')}}</button>
         </form>
 
     </div>
