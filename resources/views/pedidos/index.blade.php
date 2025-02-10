@@ -49,11 +49,16 @@
                                                     </a>
                         <a href="{{route('pedidos.edit', $pedido->id)}}" class="btn btn-warning btn-sm">{{ __('messages.modify')}}</a>
 
-                        <form action="{{ route('platos.destroy', $pedido->id) }}" method="POST" class="d-inline-block">
+                        <form action="{{ route('pedidos.destroy', $pedido->id) }}" method="POST" id="formEliminarPedido" class="d-inline-block">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este plato?')">{{ __('messages.delete')}}</button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.order')]) }}', '#formEliminarPedido')">
+                                {{ __('messages.delete') }}
+                            </button>
                         </form>
+                        
+                    
+                        <x-modal-confirmacion :message="__('messages.delete_confirmation', ['item' => __('messages.order')])" :action="route('pedidos.destroy', $pedido->id)" />
     
                     </td>
                     

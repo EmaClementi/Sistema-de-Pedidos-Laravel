@@ -23,7 +23,8 @@ return [
     'close' => 'Cerrar',
     'cancel' => 'Cancelar',
     'confirm' => 'Confirmar',
-    'delete_confirmation' => '¿Estás seguro que deseas eliminar ":item"?',
+    'delete_confirmation' => '¿Estás seguro que deseas eliminar el :item?',
+    'order' => 'pedido',
 
 
      // Gestión de Platos
