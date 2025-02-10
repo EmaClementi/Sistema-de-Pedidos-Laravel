@@ -1,32 +1,32 @@
 @extends('layouts.app')
 
-@section('title', 'Pedido')
+@section('title', __('messages.orders'))
 
-@section('titulo', 'Detalles del Pedido')
+@section('titulo', __('messages.order_details'))
 
 @section('content')
 
     <div class="container mt-4">
-        <a href="{{route('pedidos.index')}}" class="btn btn-secondary mb-3">Volver a pedidos</a>
+        <a href="{{route('pedidos.index')}}" class="btn btn-secondary mb-3">{{ __('messages.back_to_orders')}}</a>
 
         <div class="card">
             <div class="card-header">
-                <h3>Detalles del Pedido</h3>
+                <h3>Detalles del Pedido{{ __('messages.back_to_orders')}}</h3>
             </div>
             <div class="card-body">
-                <p><strong>Nombre del Cliente:</strong> {{ $pedido->cliente->nombre }}</p>
-                <p><strong>Fecha:</strong> {{$pedido->fecha}}</p>
-                <p><strong>Forma de Pago:</strong> {{$pedido->forma_de_pago }}</p>
-                <p><strong>Total:</strong> {{ $pedido->total }}</p>
-                <p><strong>Estado</strong> {{ $pedido->estado }}</p>
+                <p><strong>{{ __('messages.client_name')}}:</strong> {{ $pedido->cliente->nombre }}</p>
+                <p><strong>{{ __('messages.date')}}:</strong> {{$pedido->fecha}}</p>
+                <p><strong>{{ __('messages.payment_method')}}:</strong> {{$pedido->forma_de_pago }}</p>
+                <p><strong>{{ __('messages.total')}}:</strong> {{ $pedido->total }}</p>
+                <p><strong>{{ __('messages.status')}}:</strong> {{ $pedido->estado }}</p>
 
                 <table class="table table-fixed">
                     <thead>
                         <tr>
-                            <th>Plato</th>
-                            <th>Descripcion</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
+                            <th>{{ __('messages.dishes')}}</th>
+                            <th>{{ __('messages.description')}}</th>
+                            <th>{{ __('messages.quantity')}}</th>
+                            <th>{{ __('messages.price')}}</th>
                         </tr>
                     </thead>
 
@@ -43,19 +43,19 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-end fs-3" style="width: 93%;">
-                    <strong><p class="me-3">Total:</p></strong>
+                    <strong><p class="me-3">{{ __('messages.total')}}:</p></strong>
                     <p>${{ $pedido->total}}</p>
                 </div>
 
 
             </div>
             <div class="card-footer">
-                <a href="{{route('pedidos.edit', $pedido->id)}}" class="btn btn-warning">Editar Pedido</a>
+                <a href="{{route('pedidos.edit', $pedido->id)}}" class="btn btn-warning">{{ __('messages.edit_order')}}</a>
 
                 <form action="{{route('pedidos.destroy', $pedido->id)}}" method="POST" class="d-inline-block float-end">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Eliminar Pedido</button>
+                    <button type="submit" class="btn btn-danger">{{ __('messages.delete_order')}}</button>
                 </form>
             </div>
         </div>

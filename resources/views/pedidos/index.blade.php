@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
-@section('title', 'Pedidos')
+@section('title', __('messages.orders'))
 
-@section('titulo', 'Pedidos')
+@section('titulo', __('messages.orders'))
 
 @section('content')
     
 
-    <a href="{{route('pedidos.create')}}" class="btn btn-primary mb-3 d-block mx-auto">Nuevo Pedido</a>
+    <a href="{{route('pedidos.create')}}" class="btn btn-primary mb-3 d-block mx-auto">{{ __('messages.new_order')}}</a>
 
     <div class="table-responsive" style="min-width: 90%;">
         <table class="table table-fixed">
             <thead>
                 <tr>
-                    <th>Cliente</th>
-                    <th>Fecha</th>
-                    <th>Forma de Pago</th>
-                    <th>Total</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
+                    <th>{{ __('messages.client')}}</th>
+                    <th>{{ __('messages.date')}}</th>
+                    <th>{{ __('messages.payment_method')}}</th>
+                    <th>{{ __('messages.total')}}</th>
+                    <th>{{ __('messages.status')}}</th>
+                    <th>{{ __('messages.actions')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,14 +45,14 @@
                         
                     </td>
                     <td>
-                        <a href="{{ route('pedidos.show', $pedido->id) }}" class="btn btn-info btn-sm">Ver detalles</a>
+                        <a href="{{ route('pedidos.show', $pedido->id) }}" class="btn btn-info btn-sm">{{ __('messages.view_details')}}</a>
                                                     </a>
-                        <a href="{{route('pedidos.edit', $pedido->id)}}" class="btn btn-warning btn-sm">Modificar</a>
+                        <a href="{{route('pedidos.edit', $pedido->id)}}" class="btn btn-warning btn-sm">{{ __('messages.modify')}}</a>
 
                         <form action="{{ route('platos.destroy', $pedido->id) }}" method="POST" class="d-inline-block">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este plato?')">Eliminar</button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este plato?')">{{ __('messages.delete')}}</button>
                         </form>
     
                     </td>

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Nosotros')
+@section('title', __('messages.about_us'))
 
-@section('titulo', 'Sobre Nosotros')
+@section('titulo', __('messages.about_us'))
 
 @section('content')
 <div class="row">

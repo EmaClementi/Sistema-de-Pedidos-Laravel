@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Inicio')
+@section('title', __('messages.home'))
 
 @section('titulo', __('messages.welcome_to_the_order_management_system'))
 

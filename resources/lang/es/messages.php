@@ -9,11 +9,17 @@ return [
     'welcome_to_the_order_management_system' => 'Bienvenido al sistema de gestión de pedidos',
     'home' => 'Inicio',
     'contact' => 'Contacto',
+    'contact_us' => 'Contáctanos',
     'about_us' => 'Sobre Nosotros',
     'all_rights_reserved' => 'Todos los derechos reservados.',
     'orders' => 'Pedidos',
     'clients' => 'Clientes',
     'dishes' => 'Platos',
+    'error' => 'Error',
+    'unexpected_error' => 'Ocurrió un error inesperado.',
+    'fix_errors' => 'Por favor, corrija los errores a continuación.',
+    'saving_error' => 'Error al guardar los datos.',
+
 
      // Gestión de Platos
      'manage_dishes' => 'Gestión de Platos',
@@ -24,6 +30,7 @@ return [
      'actions' => 'Acciones',
      'new_dish' => 'Nuevo Plato',
      'edit' => 'Editar',
+     'modify' => 'Modificar',
      'delete' => 'Eliminar',
      'order_details' => 'Detalles del Pedido',
      'back_to_dishes' => 'Volver a Platos',
@@ -37,6 +44,7 @@ return [
      'create_dish' => 'Crear Plato',
  
      // Gestión de Clientes
+     'client' => 'Cliente',
      'new_client' => 'Nuevo Cliente',
      'last_name' => 'Apellido',
      'address' => 'Dirección',
@@ -57,11 +65,14 @@ return [
      'status' => 'Estado',
      'new_order' => 'Nuevo Pedido',
      'view_details' => 'Ver Detalles',
+     'back_to_orders' => 'Volver a Pedidos',
      'edit_order' => 'Editar Pedido',
+     'modify_order' => 'Modificar Pedido',
      'delete_order' => 'Eliminar Pedido',
      'order_data' => 'Datos del Pedido',
      'available_dishes' => 'Platos Disponibles',
      'select' => 'Seleccionar',
+     'quantity' => 'Cantidad',
      'total_amount' => 'Total $',
      'create_order' => 'Crear Pedido',
      'cash' => 'Efectivo',

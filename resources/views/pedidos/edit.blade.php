@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Pedidos')
-@section('titulo', 'Modificar Pedido')
+@section('title', __('messages.orders'))
+@section('titulo', __('messages.modify_order'))
 
 @section('content')
 
-    <h1>Editar un Pedido</h1>
+    <h1>{{ __('messages.edit_order')}}</h1>
 
     @if($errors->any())
     <div>
-        <h2>Errores:</h2>
+        <h2>{{ __('messages.fix_errors')}}</h2>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>
@@ -21,7 +21,7 @@
 @endif
 
 <div class="container mt-5">
-    <h2 class="h2">Datos del Pedido</h2>
+    <h2 class="h2">{{ __('messages.order_data')}}</h2>
 
     <form action="{{ route('pedidos.update', $pedido->id) }}" method="POST">
         @method('PUT')
@@ -29,7 +29,7 @@
 
         <div class="my-4">
             <div class="form-group">
-            <label for="cliente_id">Cliente:</label>
+            <label for="cliente_id">{{ __('messages.client')}}:</label>
             <select id="nombre" name="nombre" class="form-control" disabled>
                 <option value="{{ old('nombre', $pedido->cliente->nombre) }}">
                     {{ $pedido->cliente->nombre }}
@@ -38,12 +38,12 @@
             </div>
             
             <div class="form-group">
-                <label for="fecha">Fecha:</label>
+                <label for="fecha">{{ __('messages.date')}}:</label>
                 <input type="date" name="fecha" id="fecha" class="form-control" value="{{old('nombre', $pedido->fecha)}}" required>
             </div>
         
             <div class="form-group">
-                <label for="forma_de_pago">Forma de Pago:</label>
+                <label for="forma_de_pago">{{ __('messages.payment_method')}}:</label>
                 <select name="forma_de_pago" id="forma_de_pago" class="form-control">
                     @foreach ($formasDePago as $forma)
                         <option value="{{ $forma }}" {{ $pedido->forma_de_pago == $forma ? 'selected' : '' }}>
@@ -56,16 +56,16 @@
         </div>
 
     
-        <h2 class="h2">Platos disponibles</h2>
+        <h2 class="h2">{{ __('messages.available_dishes')}}</h2>
 
         <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Plato</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Seleccionar</th>
+                        <th>{{ __('messages.dishes')}}</th>
+                        <th>{{ __('messages.price')}}</th>
+                        <th>{{ __('messages.quantity')}}</th>
+                        <th>{{ __('messages.select')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -110,10 +110,10 @@
             </table>
             
         </div>
-        <h3>Total ${{$pedido->total}}</h3>
+        <h3>{{ __('messages.total')}} ${{$pedido->total}}</h3>
 
     
-        <button type="submit" class="btn btn-primary">Modificar Pedido</button>
+        <button type="submit" class="btn btn-primary">{{ __('messages.modify_order')}}</button>
     </form>
     
 @endsection

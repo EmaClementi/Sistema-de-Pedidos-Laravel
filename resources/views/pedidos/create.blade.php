@@ -2,7 +2,7 @@
 
 @section('title', 'Nuevo Pedido')
 
-@section('titulo', 'Crear Pedido')
+@section('titulo', __('messages.create_order'))
 
 @section('content')
 
@@ -18,14 +18,14 @@
 @endif
 
 <div class="container mt-5">
-    <h2 class="h2">Datos del Pedido</h2>
+    <h2 class="h2">{{__('messages.order_data')}}</h2>
 
     <form action="{{ route('pedidos.store') }}" method="POST">
         @csrf
 
         <div class="my-4">
             <div class="form-group">
-            <label for="cliente_id">Cliente:</label>
+            <label for="cliente_id">{{__('messages.client')}}:</label>
             <select name="cliente_id" id="cliente_id" class="form-control">
                 @foreach ($clientes as $cliente)
                     <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
@@ -34,31 +34,31 @@
             </div>
             
             <div class="form-group">
-                <label for="fecha">Fecha:</label>
+                <label for="fecha">{{__('messages.date')}}:</label>
                 <input type="date" name="fecha" id="fecha" class="form-control" required>
             </div>
         
             <div class="form-group">
-                <label for="forma_de_pago">Forma de Pago:</label>
+                <label for="forma_de_pago">{{__('messages.payment_method')}}:</label>
                 <select class="form-control" name="forma_de_pago" id="forma_de_pago">
-                    <option value="Efectivo">Efectivo</option>
-                    <option value="Transferencia">Transferencia</option>
-                    <option value="Tarjeta">Tarjeta</option>
+                    <option value="Efectivo">{{__('messages.cash')}}</option>
+                    <option value="Transferencia">{{__('messages.transfer')}}</option>
+                    <option value="Tarjeta">{{__('messages.card')}}</option>
                 </select>
             </div> 
         </div>
 
     
-        <h2 class="h2">Platos disponibles</h2>
+        <h2 class="h2">{{__('messages.available_dishes')}}</h2>
 
         <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Plato</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Seleccionar</th>
+                        <th>{{__('messages.dishes')}}</th>
+                        <th>{{__('messages.price')}}</th>
+                        <th>{{__('messages.quantity')}}</th>
+                        <th>{{__('messages.select')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,7 +79,7 @@
         </div>
 
     
-        <button type="submit" class="btn btn-primary">Confirmar Pedido</button>
+        <button type="submit" class="btn btn-primary">{{__('messages.confirm_order')}}</button>
     </form>
     
     <script>
