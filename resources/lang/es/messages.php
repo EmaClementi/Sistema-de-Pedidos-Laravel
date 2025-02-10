@@ -40,6 +40,7 @@ return [
      'delete' => 'Eliminar',
      'order_details' => 'Detalles del Pedido',
      'back_to_dishes' => 'Volver a Platos',
+     'dish_details' => 'Detalles del Plato',
      'edit_data' => 'Modificar Datos',
      'delete_dish' => 'Eliminar Plato',
      'edit_dish' => 'Modificar Plato',

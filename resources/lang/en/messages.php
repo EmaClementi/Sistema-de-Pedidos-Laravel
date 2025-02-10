@@ -83,4 +83,5 @@ return [
     'order' => 'order',
     'dish' => 'dish',
     'dishes' => 'Dishes',
+    'dish_details' => 'Dish Details'
 ];
