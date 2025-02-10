@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Nuevo Cliente')
+@section('title', __('messages.new_client'))
 
-@section('titulo', 'Agregar Nuevo Cliente')
+@section('titulo', __('messages.add_new_client'))
 
 @section('content')
 
     @if($errors->any())
         <div>
-            <h2>Errores:</h2>
+            <h2>{{ __('messages.fix_errors')}}:</h2>
             <ul>
                 @foreach($errors->all() as $error)
                     <li>
@@ -24,27 +24,27 @@
         @csrf
 
         <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre del Cliente:</label>
+            <label for="nombre" class="form-label">{{ __('messages.client_name')}}:</label>
             <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
         </div>
 
         <div class="mb-3">
-            <label for="apellido" class="form-label">Apellido:</label>
+            <label for="apellido" class="form-label">{{ __('messages.last_name')}}:</label>
             <input type="text" class="form-control" id="apellido" name="apellido" value="{{ old('apellido') }}">
         </div>
 
         <div class="mb-3">
-            <label for="direccion" class="form-label">Direccion:</label>
+            <label for="direccion" class="form-label">{{ __('messages.address')}}:</label>
             <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}" placeholder="Ej: Av. Siempre Viva 742" 
             pattern="[A-Za-z0-9\s,.-]+" >
         </div>
 
         <div class="mb-3">
-            <label for="telefono" class="form-label">Telefono:</label>
+            <label for="telefono" class="form-label">{{ __('messages.phone')}}:</label>
             <input type="text" class="form-control" id="telefono" name="telefono" value="{{ old('telefono') }}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Crear Cliente</button>
+        <button type="submit" class="btn btn-primary">{{ __('messages.create_client')}}</button>
     </form>
 </div>
 

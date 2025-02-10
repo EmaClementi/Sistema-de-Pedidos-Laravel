@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Gestión de Clientes')
+@section('title', __('messages.client_management'))
 
-@section('titulo', 'Clientes')
+@section('titulo', __('messages.client'))
 
 @section('content')
     
-    <a href="{{route('clientes.create')}}" class="btn btn-primary mb-3 d-block mx-auto">Nuevo Cliente</a>
+    <a href="{{route('clientes.create')}}" class="btn btn-primary mb-3 d-block mx-auto">{{ __('messages.new_client')}}</a>
 
   {{-- <ul>
         @foreach ($clientes as $cliente)
@@ -22,11 +22,11 @@
         <table class="table table-fixed">
             <thead>
                 <tr>
-                    <th>Numero</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
+                    <th>{{ __('messages.number')}}</th>
+                    <th>{{ __('messages.name')}}</th>
+                    <th>{{ __('messages.last_name')}}</th>
+                    <th>{{ __('messages.address')}}</th>
+                    <th>{{ __('messages.phone')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,12 +38,12 @@
                         <td>{{ $cliente->direccion }}</td>
                         <td>{{ $cliente->telefono }}</td>
                         <td>
-                            <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">{{ __('messages.edit')}}</a>
 
                             <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este cliente')">Eliminar</button>
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este cliente')">{{ __('messages.delete')}}</button>
                             </form>
                         </td>
                     </tr>
