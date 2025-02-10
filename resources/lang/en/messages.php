@@ -81,4 +81,6 @@ return [
     'confirm' => 'Confirm',
     'delete_confirmation' => 'Are you sure you want to delete :item?',
     'order' => 'order',
+    'dish' => 'dish',
+    'dishes' => 'Dishes',
 ];

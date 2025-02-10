@@ -48,6 +48,8 @@ return [
      'dish_description' => 'Descripción del Plato',
      'dish_price' => 'Precio del Plato',
      'create_dish' => 'Crear Plato',
+     'dish' => 'plato',
+     'dishes' => 'Platos',
  
      // Gestión de Clientes
      'client' => 'Cliente',

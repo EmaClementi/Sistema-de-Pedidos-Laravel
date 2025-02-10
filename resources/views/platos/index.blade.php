@@ -27,13 +27,18 @@
                             <td>{{ $plato->descripcion }}</td>
                             <td>${{ $plato->precio }}</td>
                             <td>
-                                <a href="{{ route('platos.edit', $plato->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="{{ route('platos.edit', $plato->id) }}" class="btn btn-warning btn-sm">{{ __('messages.edit')}}</a>
 
-                                <form action="{{ route('platos.destroy', $plato->id) }}" method="POST" class="d-inline-block">
+                                <form action="{{ route('platos.destroy', $plato->id) }}" method="POST" id="formEliminarPlato" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este plato?')">Eliminar</button>
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.dish')]) }}', '#formEliminarPlato')">
+                                        {{ __('messages.delete') }}
+                                    </button>
                                 </form>
+                                
+                            
+                                <x-modal-confirmacion :message="__('messages.delete_confirmation', ['item' => __('messages.dish')])" :action="route('platos.destroy', $plato->id)" />
                             </td>
                         </tr>
                     @endforeach
