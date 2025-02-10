@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use App\Http\Middleware\CheckAuthorStatus;
+
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
@@ -14,7 +16,14 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware-> web(append:[
             \App\Http\Middleware\LocaleMiddleware::class,
         ]);
+        $middleware->web(append:[
+            \App\Http\Middleware\LocaleMiddleware::class,
+        ]);
+
     })
+    ->withEvents(discover: [
+        __DIR__.'/../app/Domain/Listeners',
+    ])
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

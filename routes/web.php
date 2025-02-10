@@ -10,6 +10,7 @@ use App\Models\Pedido;
 use App\Http\Controllers\LocaleController;
 
 Route::post('/locale', LocaleController::class)->name('locale.change');
+Route::post('/locale', LocaleController::class)->name('locale.change');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
