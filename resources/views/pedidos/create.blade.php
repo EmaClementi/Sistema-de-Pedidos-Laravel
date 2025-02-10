@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Nuevo Pedido')
+@section('title', __('messages.new_order'))
 
 @section('titulo', __('messages.create_order'))
 
@@ -8,7 +8,7 @@
 
 @if($errors->any())
     <div class="alert alert-danger">
-        <h3>Errores:</h3>
+        <h3>{{ __('messages.fix_errors')}}:</h3>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -18,14 +18,14 @@
 @endif
 
 <div class="container mt-5">
-    <h2 class="h2">{{__('messages.order_data')}}</h2>
+    <h2 class="h2">{{ __('messages.order_data')}}</h2>
 
     <form action="{{ route('pedidos.store') }}" method="POST">
         @csrf
 
         <div class="my-4">
             <div class="form-group">
-            <label for="cliente_id">{{__('messages.client')}}:</label>
+            <label for="cliente_id">{{ __('messages.client')}}:</label>
             <select name="cliente_id" id="cliente_id" class="form-control">
                 @foreach ($clientes as $cliente)
                     <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
@@ -34,31 +34,31 @@
             </div>
             
             <div class="form-group">
-                <label for="fecha">{{__('messages.date')}}:</label>
+                <label for="fecha">{{ __('messages.date')}}:</label>
                 <input type="date" name="fecha" id="fecha" class="form-control" required>
             </div>
         
             <div class="form-group">
-                <label for="forma_de_pago">{{__('messages.payment_method')}}:</label>
+                <label for="forma_de_pago">{{ __('messages.payment_method')}}:</label>
                 <select class="form-control" name="forma_de_pago" id="forma_de_pago">
-                    <option value="Efectivo">{{__('messages.cash')}}</option>
-                    <option value="Transferencia">{{__('messages.transfer')}}</option>
-                    <option value="Tarjeta">{{__('messages.card')}}</option>
+                    <option value="Efectivo">{{ __('messages.cash')}}</option>
+                    <option value="Transferencia">{{ __('messages.transfer')}}</option>
+                    <option value="Tarjeta">{{ __('messages.card')}}</option>
                 </select>
             </div> 
         </div>
 
     
-        <h2 class="h2">{{__('messages.available_dishes')}}</h2>
+        <h2 class="h2">{{ __('messages.available_dishes')}}</h2>
 
         <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>{{__('messages.dishes')}}</th>
-                        <th>{{__('messages.price')}}</th>
-                        <th>{{__('messages.quantity')}}</th>
-                        <th>{{__('messages.select')}}</th>
+                        <th>{{ __('messages.dishes')}}</th>
+                        <th>{{ __('messages.price')}}</th>
+                        <th>{{ __('messages.quantity')}}</th>
+                        <th>{{ __('messages.select')}}</th>
                     </tr>
                 </thead>
                 <tbody>
