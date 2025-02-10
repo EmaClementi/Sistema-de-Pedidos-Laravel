@@ -45,6 +45,7 @@ return [
  
      // Gestión de Clientes
      'client' => 'Cliente',
+     'client_management' => 'Gestión de Clientes',
      'new_client' => 'Nuevo Cliente',
      'last_name' => 'Apellido',
      'address' => 'Dirección',
@@ -57,6 +58,7 @@ return [
      'add_new_client' => 'Agregar un Nuevo Cliente',
      'client_name' => 'Nombre del Cliente',
      'create_client' => 'Crear Cliente',
+     'modify_data' => 'Modificar Datos',
  
      // Gestión de Pedidos
      'date' => 'Fecha',
