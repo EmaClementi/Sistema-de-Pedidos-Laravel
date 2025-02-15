@@ -70,7 +70,14 @@
         </table>
     </div>
     
+    <h2>Facturación del Día</h2>
 
+    @if($facturacion)
+        <p>Fecha: {{ $facturacion->fecha }}</p>
+        <p>Total Facturado: ${{ number_format($facturacion->total_facturado, 2) }}</p>
+    @else
+        <p>No hay pedidos para hoy.</p>
+    @endif
 
     <a href="{{route('home')}}">Volver al Inicio</a>
     <br>

@@ -15,13 +15,6 @@
 <body>
     <nav>
         <x-navbar />
-        <form action="{{ route('locale.change') }}" method="POST">
-            @csrf
-            <select name="locale" onchange="this.form.submit()">
-                <option value="es"{{ app()->getlocale() == 'es' ? ' selected' : '' }}>Español</option>
-                <option value="en"{{ app()->getlocale() == 'en' ? ' selected' : '' }}>English</option>
-            </select>
-        </form>
     </nav>
     
     <h1 class="titulo-pagina">@yield('titulo', 'titulo')</h1>

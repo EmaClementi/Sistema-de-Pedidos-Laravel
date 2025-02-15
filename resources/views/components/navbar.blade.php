@@ -12,7 +12,7 @@
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">{{ __('messages.home') }}</a>
                     </li>
@@ -23,7 +23,29 @@
                         <a class="nav-link" href="{{ route('contactos') }}">{{ __('messages.contact') }}</a>
                     </li>
                 </ul>
+                
+                <form action="{{ route('locale.change') }}" method="POST" class="ms-auto">
+                    @csrf
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <img src="{{ app()->getlocale() == 'es' ? asset('img/banderaArg.png') : asset('img/banderaEEUU.png') }}" width="20">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button type="submit" name="locale" value="es" class="dropdown-item">
+                                    <img src="{{ asset('img/banderaArg.png') }}" width="20"> Español
+                                </button>
+                            </li>
+                            <li>
+                                <button type="submit" name="locale" value="en" class="dropdown-item">
+                                    <img src="{{ asset('img/banderaEEUU.png') }}" width="20"> English
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
             </div>
+            
         </div>
     </nav>
 </header>

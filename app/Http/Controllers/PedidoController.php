@@ -10,6 +10,7 @@ use App\Http\Requests\StorePedidoRequest;
 use App\Http\Requests\UpdatePedidoRequest;
 use App\Models\Cliente;
 use App\Models\Detalle_pedido;
+use Carbon\Carbon;
 
 class PedidoController extends Controller
 {
@@ -19,7 +20,15 @@ class PedidoController extends Controller
 
         $estados = ['En Proceso', 'Listo para Entregar', 'En Camino', 'Entregado'];
 
-        return view('pedidos.index', compact('pedidos', 'estados'));
+        $facturacion = Pedido::join('detalle_pedidos', 'pedidos.id', '=', 'detalle_pedidos.pedido_id')
+            ->join('platos', 'detalle_pedidos.plato_id', '=', 'platos.id')
+            ->selectRaw('pedidos.fecha, SUM(platos.precio * detalle_pedidos.cantidad) as total_facturado')
+            ->whereDate('pedidos.fecha', Carbon::today())
+            ->groupBy('pedidos.fecha')
+            ->first();
+
+
+        return view('pedidos.index', compact('pedidos', 'estados', 'facturacion'));
     }
     public function show(Pedido $pedido){
 
@@ -139,5 +148,4 @@ class PedidoController extends Controller
 
         return redirect('/pedidos');
     }
-    
 }
