@@ -9,7 +9,7 @@
     <!-- Muestra los errores si los hay -->
     @if($errors->any())
         <div class="alert alert-danger">
-            <h4>Errores:</h4>
+            <h4>{{ __('messages.fix_errors')}}:</h4>
             <ul>
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>

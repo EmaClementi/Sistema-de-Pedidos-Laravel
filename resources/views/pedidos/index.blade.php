@@ -70,16 +70,16 @@
         </table>
     </div>
     
-    <h2>Facturación del Día</h2>
+    <h2>{{ __('messages.billing_day')}}</h2>
 
     @if($facturacion)
-        <p>Fecha: {{ $facturacion->fecha }}</p>
-        <p>Total Facturado: ${{ number_format($facturacion->total_facturado, 2) }}</p>
+        <p>{{ __('messages.date')}}: {{ $facturacion->fecha }}</p>
+        <p>{{ __('messages.total_billed')}}: ${{ number_format($facturacion->total_facturado, 2) }}</p>
     @else
-        <p>No hay pedidos para hoy.</p>
+        <p>{{ __('messages.not_orders')}}</p>
     @endif
 
-    <a href="{{route('home')}}">Volver al Inicio</a>
+    <a href="{{route('home')}}">{{ __('messages.return_home')}}</a>
     <br>
     <br>
     {{ $pedidos->links('pagination::bootstrap-4')}}

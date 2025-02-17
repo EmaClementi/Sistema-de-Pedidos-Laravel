@@ -30,6 +30,11 @@ return [
     'info' => 'Somos una empresa comprometida con la innovación, la calidad y la excelencia. 
     Nuestro equipo trabaja arduamente para ofrecer los mejores productos y servicios a nuestros clientes.',
     'thank' => '¡Gracias por confiar en nosotros!',
+    'billing_day' => 'Facturacion del Dia',
+    'total_billed' => 'Total Facturado',
+    'not_orders' => 'No hay pedidos para hoy',
+    'return_home' => 'Volver al Inicio',
+
 
      // Gestión de Platos
      'manage_dishes' => 'Gestión de Platos',

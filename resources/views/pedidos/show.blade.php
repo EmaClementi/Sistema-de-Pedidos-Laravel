@@ -11,7 +11,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3>Detalles del Pedido{{ __('messages.back_to_orders')}}</h3>
+                <h3>{{ __('messages.order_details')}}</h3>
             </div>
             <div class="card-body">
                 <p><strong>{{ __('messages.client_name')}}:</strong> {{ $pedido->cliente->nombre }}</p>

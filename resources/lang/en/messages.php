@@ -24,6 +24,10 @@ return [
     'info' => 'We are a company committed to innovation, quality and excellence. 
     Our team works hard to offer the best products and services to our customers.',
     'thank' => '¡Thank you for trusting us!',
+    'billing_day' => 'Billing of the Day',
+    'total_billed' => 'Total Billed',
+    'not_orders' => 'There are no orders for today',
+    'return_home' => 'Return to the home',
     'dish_management' => 'Dish Management',
     'number' => 'Number',
     'name' => 'Name',

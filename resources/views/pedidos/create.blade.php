@@ -35,7 +35,7 @@
             
             <div class="form-group">
                 <label for="fecha">{{ __('messages.date')}}:</label>
-                <input type="date" name="fecha" id="fecha" class="form-control" required>
+                <input type="date" name="fecha"  min="2010-01-01" id="fecha" class="form-control" required>
             </div>
         
             <div class="form-group">
