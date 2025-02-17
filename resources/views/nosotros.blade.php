@@ -7,8 +7,8 @@
 @section('content')
 <div class="row">
     <div class="col-md-8 mx-auto">
-        <p>Somos una empresa comprometida con la innovación, la calidad y la excelencia. Nuestro equipo trabaja arduamente para ofrecer los mejores productos y servicios a nuestros clientes.</p>
-        <p>¡Gracias por confiar en nosotros!</p>
+        <p><strong>{{ __('messages.info')}}</p>
+        <p><strong>{{ __('messages.thank')}}</p>
     </div>
 </div>
 @endsection

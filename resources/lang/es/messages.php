@@ -25,7 +25,11 @@ return [
     'confirm' => 'Confirmar',
     'delete_confirmation' => '¿Estás seguro que deseas eliminar el :item?',
     'order' => 'pedido',
-
+    'email' => 'Email',
+    'pharases' => 'Estamos a tu disposición para resolver tus dudas y atender tus solicitudes.',
+    'info' => 'Somos una empresa comprometida con la innovación, la calidad y la excelencia. 
+    Nuestro equipo trabaja arduamente para ofrecer los mejores productos y servicios a nuestros clientes.',
+    'thank' => '¡Gracias por confiar en nosotros!',
 
      // Gestión de Platos
      'manage_dishes' => 'Gestión de Platos',

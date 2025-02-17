@@ -19,6 +19,11 @@ return [
     'fix_errors' => 'Please fix the errors below.',
     'saving_error' => 'Error saving the data.',
     'all_rights_reserved' => 'All rights reserved.',
+    'email' => 'Email',
+    'pharases' => 'We are at your disposal to answer your questions and respond to your requests.',
+    'info' => 'We are a company committed to innovation, quality and excellence. 
+    Our team works hard to offer the best products and services to our customers.',
+    'thank' => '¡Thank you for trusting us!',
     'dish_management' => 'Dish Management',
     'number' => 'Number',
     'name' => 'Name',

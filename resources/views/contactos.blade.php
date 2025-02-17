@@ -7,10 +7,10 @@
 @section('content')
 <div class="row">
     <div class="col-md-8 mx-auto">
-        <p><strong>Teléfono:</strong> +54 123 456 7890</p>
-        <p><strong>Email:</strong> contacto@miempresa.com</p>
-        <p><strong>Dirección:</strong> Calle Ejemplo 123, Tandil, Argentina</p>
-        <p>Estamos a tu disposición para resolver tus dudas y atender tus solicitudes.</p>
+        <p><strong>{{ __('messages.phone')}}:</strong> +54 249 456 7890</p>
+        <p><strong>{{ __('messages.email')}}:</strong> SistemaGestionPedidos@miempresa.com</p>
+        <p><strong>{{ __('messages.address')}}:</strong> Pinto 123, Tandil, Argentina</p>
+        <p><strong>{{ __('messages.pharases')}}</p>
     </div>
 </div>
 @endsection
