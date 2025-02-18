@@ -83,12 +83,14 @@ return [
      'date' => 'Fecha',
      'payment_method' => 'Forma de Pago',
      'total' => 'Total',
-     'status' => [
-        'En Proceso' => 'En Proceso',
-        'Listo para Entregar' => 'Listo para Entregar',
-        'En Camino' => 'En Camino',
-        'Entregado' => 'Entregado',
+     'status' => 'Estado',
+     'status_options' => [
+        'en_proceso' => 'En Proceso',
+        'listo_para_entregar' => 'Listo para Entregar',
+        'en_camino' => 'En Camino',
+        'entregado' => 'Entregado',
     ],
+
      'new_order' => 'Nuevo Pedido',
      'view_details' => 'Ver Detalles',
      'back_to_orders' => 'Volver a Pedidos',

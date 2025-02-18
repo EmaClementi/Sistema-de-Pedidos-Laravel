@@ -14,27 +14,22 @@ use Carbon\Carbon;
 
 class PedidoController extends Controller
 {
-    public function index(){
-        $pedidos = Pedido::with('cliente')->orderBy('id', 'desc')
-                        ->paginate(6);
-
-                        
-        $estados = ['En Proceso', 'Listo para Entregar', 'En Camino', 'Entregado'];
-        foreach ($pedidos as $pedido) {
-            
-            $pedido->estado = __('messages.status.' . $pedido->estado);
-        }
-
+    public function index() {
+        $pedidos = Pedido::with('cliente')->orderBy('id', 'desc')->paginate(6);
+        $estados = ['en_proceso', 'listo_para_entregar', 'en_camino', 'entregado'];
+    
+    
         $facturacion = Pedido::join('detalle_pedidos', 'pedidos.id', '=', 'detalle_pedidos.pedido_id')
-            ->join('platos', 'detalle_pedidos.plato_id', '=', 'platos.id')
-            ->selectRaw('pedidos.fecha, SUM(platos.precio * detalle_pedidos.cantidad) as total_facturado')
-            ->whereDate('pedidos.fecha', Carbon::today())
-            ->groupBy('pedidos.fecha')
-            ->first();
+        ->join('platos', 'detalle_pedidos.plato_id', '=', 'platos.id')
+        ->selectRaw('pedidos.fecha, SUM(platos.precio * detalle_pedidos.cantidad) as total_facturado')
+        ->whereDate('pedidos.fecha', Carbon::today())
+        ->groupBy('pedidos.fecha')
+        ->first();
 
 
-        return view('pedidos.index', compact('pedidos', 'estados', 'facturacion'));
+    return view('pedidos.index', compact('pedidos', 'estados', 'facturacion'));
     }
+    
     public function show(Pedido $pedido){
 
         

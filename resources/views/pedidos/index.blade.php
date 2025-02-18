@@ -23,6 +23,7 @@
             </thead>
             <tbody>
                 @foreach ($pedidos as $pedido)
+
                 <tr>
                     <td>{{$pedido->cliente->nombre}}</td>
                     {{-- <td>{{$pedido->fecha}} --}}
@@ -34,7 +35,6 @@
                     <td>{{$pedido->forma_de_pago}}</td>
                     <td>{{$pedido->total}}</td>
                     <td>
-                        <td>{{ is_string($pedido->estado) ? $pedido->estado : json_encode($pedido->estado) }}</td>
                         <form action="{{ route('pedidos.updateEstado', $pedido->id) }}" method="POST" class="d-inline-block" id="estadoForm_{{ $pedido->id }}">
                             @csrf
                             @method('PATCH')
@@ -42,11 +42,14 @@
                             <select name="estado" class="form-control" onchange="this.form.submit()">
                                 @foreach ($estados as $estado)
                                     <option value="{{ $estado }}" {{ $pedido->estado == $estado ? 'selected' : '' }}>
-                                        {{ __('messages.status.' . $estado) }}
+                                        {{ __('messages.status_options.' . $estado) }} 
                                     </option>
                                 @endforeach
                             </select>
                         </form>
+                        
+                        
+                        
                         
                         
                     </td>

@@ -65,11 +65,12 @@ return [
     'date' => 'Date',
     'payment_method' => 'Payment Method',
     'total' => 'Total',
-    'status' => [
-        'En Proceso' => 'Processing',
-        'Listo para Entregar' => 'Ready to Deliver',
-        'En Camino' => 'On the Way',
-        'Entregado' => 'Delivered',
+    'status' => 'Status',
+    'status_options' => [
+            'en_proceso' => 'Processing',
+            'listo_para_entregar' => 'Ready to Deliver',
+            'en_camino' => 'On the Way',
+            'entregado' => 'Delivered',
     ],
     'new_order' => 'New Order',
     'view_details' => 'View Details',
