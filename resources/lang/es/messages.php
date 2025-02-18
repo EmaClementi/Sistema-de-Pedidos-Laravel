@@ -34,6 +34,7 @@ return [
     'total_billed' => 'Total Facturado',
     'not_orders' => 'No hay pedidos para hoy',
     'return_home' => 'Volver al Inicio',
+    'date_format' => 'd-m-Y',
 
 
      // Gestión de Platos
@@ -82,7 +83,12 @@ return [
      'date' => 'Fecha',
      'payment_method' => 'Forma de Pago',
      'total' => 'Total',
-     'status' => 'Estado',
+     'status' => [
+        'En Proceso' => 'En Proceso',
+        'Listo para Entregar' => 'Listo para Entregar',
+        'En Camino' => 'En Camino',
+        'Entregado' => 'Entregado',
+    ],
      'new_order' => 'Nuevo Pedido',
      'view_details' => 'Ver Detalles',
      'back_to_orders' => 'Volver a Pedidos',

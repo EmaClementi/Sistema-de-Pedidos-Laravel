@@ -27,17 +27,17 @@
     
             <div class="mb-3">
                 <label for="nombre" class="form-label">{{ __('messages.name')}}</label>
-                <input type="text" id="nombre" name="nombre" class="form-control" value="{{old('nombre', $plato->nombre)}}">
+                <input type="text" id="nombre" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" name="nombre" class="form-control" value="{{old('nombre', $plato->nombre)}}">
             </div>
             
             <div class="mb-3">
                 <label for="descripcion" class="form-label">{{ __('messages.description')}}</label>
-                <input type="text" id="descripcion" name="descripcion" class="form-control" value="{{old('descripcion', $plato->descripcion)}}">
+                <input type="text" id="descripcion" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" name="descripcion" class="form-control" value="{{old('descripcion', $plato->descripcion)}}">
             </div>
             
             <div class="mb-3">
                 <label for="precio" class="form-label">{{ __('messages.price')}}</label>
-                <input type="number" id="precio" name="precio" class="form-control" value="{{old('precio', $plato->precio)}}">
+                <input type="text" id="precio" pattern="^\+?[0-9\s\-\(\)]{7,20}$" name="precio" class="form-control" value="{{old('precio', $plato->precio)}}">
             </div>
             
             <button type="submit" class="btn btn-primary">{{__('messages.modify_dish')}}</button>

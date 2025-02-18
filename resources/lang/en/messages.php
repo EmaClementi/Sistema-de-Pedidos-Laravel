@@ -65,7 +65,12 @@ return [
     'date' => 'Date',
     'payment_method' => 'Payment Method',
     'total' => 'Total',
-    'status' => 'Status',
+    'status' => [
+        'En Proceso' => 'Processing',
+        'Listo para Entregar' => 'Ready to Deliver',
+        'En Camino' => 'On the Way',
+        'Entregado' => 'Delivered',
+    ],
     'new_order' => 'New Order',
     'view_details' => 'View Details',
     'modify' => 'Modify',
@@ -92,5 +97,7 @@ return [
     'order' => 'order',
     'dish' => 'dish',
     'dishes' => 'Dishes',
-    'dish_details' => 'Dish Details'
+    'dish_details' => 'Dish Details',
+    'date_format' => 'Y-m-d',
+
 ];

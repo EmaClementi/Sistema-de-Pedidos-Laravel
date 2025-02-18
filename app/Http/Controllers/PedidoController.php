@@ -18,7 +18,12 @@ class PedidoController extends Controller
         $pedidos = Pedido::with('cliente')->orderBy('id', 'desc')
                         ->paginate(6);
 
+                        
         $estados = ['En Proceso', 'Listo para Entregar', 'En Camino', 'Entregado'];
+        foreach ($pedidos as $pedido) {
+            
+            $pedido->estado = __('messages.status.' . $pedido->estado);
+        }
 
         $facturacion = Pedido::join('detalle_pedidos', 'pedidos.id', '=', 'detalle_pedidos.pedido_id')
             ->join('platos', 'detalle_pedidos.plato_id', '=', 'platos.id')

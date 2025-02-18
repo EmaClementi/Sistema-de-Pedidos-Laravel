@@ -24,17 +24,17 @@
 
             <div class="mb-3">
                 <label for="nombre" class="form-label">{{__('messages.dish_name')}}:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
+                <input type="text" class="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" id="nombre" name="nombre" value="{{ old('nombre') }}">
             </div>
 
             <div class="mb-3">
                 <label for="descripcion" class="form-label">{{__('messages.dish_description')}}:</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
+                <input type="text" class="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
             </div>
 
             <div class="mb-3">
                 <label for="precio" class="form-label">{{__('messages.dish_price')}}:</label>
-                <input type="number" class="form-control" id="precio" name="precio" value="{{ old('precio') }}">
+                <input type="number" class="form-control" pattern="^\+?[0-9\s\-\(\)]{7,20}$" id="precio" name="precio" value="{{ old('precio') }}">
             </div>
 
             <button type="submit" class="btn btn-primary">{{__('messages.add_new_dish')}}</button>

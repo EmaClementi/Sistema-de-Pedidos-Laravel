@@ -26,22 +26,22 @@
 
             <div class="mb-3">
                 <label for="nombre" class="form-label">{{ __('messages.name')}}: </label>
-                <input type="text" name="nombre" class="form-control" id="nombre" value="{{old('nombre', $cliente->nombre)}}">
+                <input type="text" name="nombre" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" class="form-control" id="nombre" value="{{old('nombre', $cliente->nombre)}}">
             </div>
                
             <div class="mb-3">
                 <label for="apellido" class="form-label">{{ __('messages.last_name')}}:</label>
-                <input type="text" name="apellido" class="form-control" id="apellido" value="{{old('apellido', $cliente->apellido)}}">
+                <input type="text" name="apellido" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" class="form-control" id="apellido" value="{{old('apellido', $cliente->apellido)}}">
             </div>
            
             <div class="mb-3">
                 <label for="direccion" class="form-label">{{ __('messages.address')}}:</label>
-                <input type="text" name="direccion" class="form-control" id="direccion" value="{{old('direccion', $cliente->direccion)}}">
+                <input type="text" name="direccion" pattern="[A-Za-z0-9\s,.-]+" class="form-control" id="direccion" value="{{old('direccion', $cliente->direccion)}}">
             </div>
             
             <div class="mb-3">
                 <label for="telefono" class="form-label">{{ __('messages.phone')}}:</label>
-                <input type="text" name="telefono" class="form-control" id="telefono" value="{{old('telefono', $cliente->telefono)}}">
+                <input type="text" name="telefono" pattern="^\+?[0-9\s\-\(\)]{7,20}$" class="form-control" id="telefono" value="{{old('telefono', $cliente->telefono)}}">
             </div>
           
             <button type="submit" class="btn btn-primary">{{ __('messages.edit_client')}}</button>

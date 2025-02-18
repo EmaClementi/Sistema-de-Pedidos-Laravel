@@ -25,12 +25,12 @@
 
         <div class="mb-3">
             <label for="nombre" class="form-label">{{ __('messages.client_name')}}:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
+            <input type="text" class="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"  id="nombre" name="nombre" value="{{ old('nombre') }}">
         </div>
 
         <div class="mb-3">
             <label for="apellido" class="form-label">{{ __('messages.last_name')}}:</label>
-            <input type="text" class="form-control" id="apellido" name="apellido" value="{{ old('apellido') }}">
+            <input type="text" class="form-control" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$" id="apellido" name="apellido" value="{{ old('apellido') }}">
         </div>
 
         <div class="mb-3">
@@ -41,7 +41,7 @@
 
         <div class="mb-3">
             <label for="telefono" class="form-label">{{ __('messages.phone')}}:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" value="{{ old('telefono') }}">
+            <input type="text" class="form-control" pattern="^\+?[0-9\s\-\(\)]{7,20}$"  id="telefono" name="telefono" value="{{ old('telefono') }}">
         </div>
 
         <button type="submit" class="btn btn-primary">{{ __('messages.create_client')}}</button>
