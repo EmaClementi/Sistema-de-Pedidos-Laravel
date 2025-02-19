@@ -45,6 +45,7 @@
 
     </div>
     
+    <a href="{{route('platos.index')}}">{{ __('messages.back_to_dishes') }}</a>
 
 @endsection
 

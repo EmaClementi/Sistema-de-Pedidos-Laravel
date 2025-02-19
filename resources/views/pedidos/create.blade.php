@@ -80,10 +80,11 @@
 
     
         <button type="submit" class="btn btn-primary">{{__('messages.confirm_order')}}</button>
+
+
+
     </form>
-        <a href="{{route('home')}}">{{ __('messages.return_home') }}</a>
-        <br>
-        <br>
+
     <script>
         // Activar/desactivar los inputs de cantidad según la selección
         document.querySelectorAll('.plato-selector').forEach(checkbox => {
@@ -100,4 +101,5 @@
 
 </div>
 
+<a href="{{route('pedidos.index')}}">{{ __('messages.back_to_orders') }}</a>
 @endsection

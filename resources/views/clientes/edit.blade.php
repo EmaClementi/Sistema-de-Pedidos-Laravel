@@ -47,4 +47,5 @@
             <button type="submit" class="btn btn-primary">{{ __('messages.edit_client')}}</button>
         </form>
     </div>
+    <a href="{{route('clientes.index')}}">{{ __('messages.back_to_clients') }}</a>
 @endsection

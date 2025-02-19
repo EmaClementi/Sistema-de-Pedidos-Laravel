@@ -114,6 +114,11 @@
 
     
         <button type="submit" class="btn btn-primary">{{ __('messages.modify_order')}}</button>
+        
     </form>
+
+    <div class="text-center">
+        <a href="{{ route('pedidos.index') }}">{{ __('messages.back_to_orders') }}</a>
+    </div>
     
 @endsection

@@ -40,5 +40,6 @@
             <button type="submit" class="btn btn-primary">{{__('messages.add_new_dish')}}</button>
         </form>
     </div>
+    <a href="{{route('platos.index')}}">{{ __('messages.back_to_dishes') }}</a>
 
 @endsection
