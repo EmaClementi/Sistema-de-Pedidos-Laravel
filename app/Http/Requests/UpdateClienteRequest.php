@@ -22,10 +22,10 @@ class UpdateClienteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'required|string|max:50',
-            'apellido' => 'required|string|max:50',
-            'direccion' => 'required|string|max:50',
-            'telefono' => 'required|string|max:50',
+            'nombre' => ['required','regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/'],
+            'apellido' => ['required','regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/'],
+            'direccion' => ['required','regex:/[A-Za-z0-9\s,.-]+/'],
+            'telefono' =>  ['required','regex:/^\+?[0-9\s\-\(\)]{7,20}$/'],
         ];
     }
 }

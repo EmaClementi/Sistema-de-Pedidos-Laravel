@@ -59,7 +59,7 @@
         </table>
     </div>
 
-    <a href="{{route('home')}}">Volver al Inicio</a>
+    <a href="{{route('home')}}">{{ __('messages.return_home') }}</a>
     <br>
     <br>
     {{ $clientes->links('pagination::bootstrap-4')}}

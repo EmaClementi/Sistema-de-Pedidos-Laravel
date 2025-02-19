@@ -33,12 +33,12 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <button type="submit" name="locale" value="es" class="dropdown-item">
-                                    <img src="{{ asset('img/banderaArg.png') }}" width="20"> Español
+                                    <img src="{{ asset('img/banderaArg.png') }}" width="20">  {{ __('messages.spanish')}}
                                 </button>
                             </li>
                             <li>
                                 <button type="submit" name="locale" value="en" class="dropdown-item">
-                                    <img src="{{ asset('img/banderaEEUU.png') }}" width="20"> English
+                                    <img src="{{ asset('img/banderaEEUU.png') }}" width="20">  {{ __('messages.english')}}
                                 </button>
                             </li>
                         </ul>

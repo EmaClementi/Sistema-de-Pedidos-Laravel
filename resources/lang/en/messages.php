@@ -8,6 +8,8 @@ return [
     'contact' => 'Contact',
     'contact_us' => 'Contact Us',
     'about_us' => 'About Us',
+    'english' => 'English',
+    'spanish' => 'Spanish',
     'what_would_you_like_to_manage' => 'What would you like to manage?',
     'welcome_to_the_order_management_system' => 'Welcome to the order management system',
     'orders' => 'Orders',

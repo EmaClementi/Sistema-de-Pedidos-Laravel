@@ -273,4 +273,25 @@ return [
         'value'                    => 'valor',
         'year'                     => 'año',
     ],
+    
+    'required' => 'El campo :attribute es obligatorio.',
+    'email' => 'El campo :attribute debe ser un correo válido.',
+    'max' => [
+        'string' => 'El campo :attribute no debe tener más de :max caracteres.',
+    ],
+    'unique' => 'El :attribute ya ha sido registrado.',
+    'confirmed' => 'La confirmación de :attribute no coincide.',
+    
+     // Custom attribute names
+    'attributes' => [
+        'name' => 'nombre',
+        'client_name' => 'nombre',
+        'last_name' => 'apellido',
+        'address' => 'dirección',
+        'phone' => 'número de teléfono',
+    ],  
+    'custom' => [
+        'name_format' => 'El campo nombre debe contener solo letras y espacios.',
+        'last_name_format' => 'El campo apellido debe contener solo letras y espacios.',
+    ],  
 ];

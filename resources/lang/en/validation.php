@@ -189,6 +189,24 @@ return [
     |
     */
 
-    'attributes' => [],
+    'required' => 'The :attribute field is required.',
+    'email' => 'The :attribute must be a valid email address.',
+    'max' => [
+        'string' => 'The :attribute may not be greater than :max characters.',
+    ],
+    'unique' => 'The :attribute has already been taken.',
+    'confirmed' => 'The :attribute confirmation does not match.',
 
+    // Custom attribute names 
+    'attributes' => [
+        'nombre' => 'name',
+        'nombre' => 'client name',
+        'apellido' => 'last name',
+        'direccion' => 'address',
+        'telefono' => 'number phone',
+    ],    
+    'custom' => [
+        'name_format' => 'The name field should only contain letters and spaces.',
+        'last_name_format' => 'The last name field should only contain letters and spaces.',
+    ], 
 ];

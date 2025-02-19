@@ -8,7 +8,7 @@
     <h1>{{ __('messages.edit_order')}}</h1>
 
     @if($errors->any())
-    <div>
+    <div class="alert alert-danger">
         <h2>{{ __('messages.fix_errors')}}</h2>
         <ul>
             @foreach ($errors->all() as $error)
