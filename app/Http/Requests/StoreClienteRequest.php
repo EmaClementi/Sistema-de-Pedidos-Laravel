@@ -22,9 +22,9 @@ class StoreClienteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => ['required','regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/'],
-            'apellido' => ['required','regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/'],
-            'direccion' => ['required','regex:/[A-Za-z0-9\s,.-]+/'],
+            'nombre' => ['required','regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/', 'max:50'],
+            'apellido' => ['required','regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/', 'max:50'],
+            'direccion' => ['required','regex:/[A-Za-z0-9\s,.-]+/', 'max:100'],
             'telefono' => ['required','regex:/^\+?[0-9\s\-\(\)]{7,20}$/'],
         ];
     }

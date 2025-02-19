@@ -45,7 +45,9 @@
                 </tbody>
             </table>
         </div>
-
+        <a href="{{route('home')}}">{{ __('messages.return_home') }}</a>
+        <br>
+        <br>
         {{ $platos->links('pagination::bootstrap-4') }}
     </div>
 @endsection

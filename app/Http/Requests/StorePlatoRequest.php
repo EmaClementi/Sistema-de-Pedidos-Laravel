@@ -22,9 +22,9 @@ class StorePlatoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'required|string|max:50',
+            'nombre' => ['required','regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/', 'max:50'],
             'descripcion' => 'required|string|max:100',
-            'precio' => 'required|integer',
+            'precio' => 'required|numeric|min:0',
         ];
     }
 }
