@@ -204,6 +204,7 @@ return [
         'apellido' => 'last name',
         'direccion' => 'address',
         'telefono' => 'number phone',
+        'fecha' => 'date',
     ],    
     'custom' => [
         'name_format' => 'The name field should only contain letters and spaces.',

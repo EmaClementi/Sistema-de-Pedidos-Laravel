@@ -39,7 +39,7 @@
             
             <div class="form-group">
                 <label for="fecha">{{ __('messages.date')}}:</label>
-                <input type="date" name="fecha" id="fecha"  min="2010-01-01" class="form-control" value="{{old('fecha', $pedido->fecha ?? '')}}" required>
+                <input type="date" name="fecha" id="fecha" class="form-control" value="{{old('fecha', $pedido->fecha ?? '')}}" required>
             </div>
         
             <div class="form-group">

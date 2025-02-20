@@ -289,6 +289,7 @@ return [
         'last_name' => 'apellido',
         'address' => 'dirección',
         'phone' => 'número de teléfono',
+        'date' => 'Fecha de pedido',
     ],  
     'custom' => [
         'name_format' => 'El campo nombre debe contener solo letras y espacios.',

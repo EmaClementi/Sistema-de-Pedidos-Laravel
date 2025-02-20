@@ -23,7 +23,12 @@ class StorePedidoRequest extends FormRequest
     {
         return [
             'cliente_id' => 'required|exists:clientes,id',
-            'fecha' => 'required|date',
+            'fecha' => ['required', 'date', function ($attribute, $value, $fail) {
+                $year = date ('Y'); // Obtiene el año actual
+                if (date('Y', strtotime($value)) != $year) {
+                    $fail("La fecha de pedido debe ser del año $year.");
+                }
+            }],
             'forma_de_pago' => 'required|max:50',
             'platos' => 'nullable|array',
             'platos.*' => 'exists:platos,id',
