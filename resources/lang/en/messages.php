@@ -102,5 +102,9 @@ return [
     'dishes' => 'Dishes',
     'dish_details' => 'Dish Details',
     'date_format' => 'Y-m-d',
-
+    'payment_methods' => [
+        'cash' => 'Cash',
+        'credit_card' => 'Credit Card',
+        'bank_transfer' => 'Bank Transfer',
+    ]
 ];
