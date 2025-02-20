@@ -133,7 +133,7 @@ class PedidoController extends Controller
     $pedido = Pedido::findOrFail($id);
 
     $request->validate([
-        'estado' => 'required|in:En Proceso,En Camino,Entregado,Listo para Entregar', 
+        'estado' => 'required|in:en_proceso,en_camino,entregado,listo_para_entregar', 
     ]);
 
     $pedido->estado = $request->estado;

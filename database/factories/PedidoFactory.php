@@ -20,7 +20,7 @@ class PedidoFactory extends Factory
         return [
             'cliente_id' => $this->faker->numberBetween(1, 10),
             'fecha' => $this->faker->date(),
-            'forma_de_pago' => $this->faker->randomElement(['Efectivo/Cash', 'Tarjeta/Card', 'Transferencia/Transfer']),
+            'forma_de_pago' => $this->faker->randomElement(['cash', 'credit_card', 'bank_transfer']),
             'total' => $this->faker->numberBetween(1000, 30000),
             'estado' => $this->faker->randomElement(['en_proceso', 'listo_para_entregar', 'en_camino', 'entregado']),
         ];

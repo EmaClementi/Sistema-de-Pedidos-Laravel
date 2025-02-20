@@ -110,4 +110,9 @@ return [
      'transfer' => 'Transferencia',
      'card' => 'Tarjeta',
      'confirm_order' => 'Confirmar Pedido',
+     'payment_methods' => [
+        'cash' => 'Efectivo',
+        'credit_card' => 'Tarjeta de Crédito',
+        'bank_transfer' => 'Transferencia Bancaria',
+    ]
 ];

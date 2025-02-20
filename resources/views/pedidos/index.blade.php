@@ -32,7 +32,7 @@
                         </td>
 
                     </td>
-                    <td>{{$pedido->forma_de_pago}}</td>
+                    <td>{{ __('messages.payment_methods.' . $pedido->forma_de_pago) }}</td>
                     <td>{{$pedido->total}}</td>
                     <td>
                         <form action="{{ route('pedidos.updateEstado', $pedido->id) }}" method="POST" class="d-inline-block" id="estadoForm_{{ $pedido->id }}">
