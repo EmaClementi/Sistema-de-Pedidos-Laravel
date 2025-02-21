@@ -91,7 +91,7 @@ class PedidoController extends Controller
 
         $detallePedidos = $pedido->detalle_pedido()->with('plato')->get();
 
-        $formasDePago = ['Efectivo', 'Transferencia', 'Tarjeta'];
+        $formasDePago = ['cash', 'bank_transfer', 'credit_card'];
 
         $clientes = Cliente::all();
         $platos = Plato::all();

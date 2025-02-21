@@ -47,7 +47,7 @@
                 <select name="forma_de_pago" id="forma_de_pago" class="form-control">
                     @foreach ($formasDePago as $forma)
                         <option value="{{ $forma }}" {{ $pedido->forma_de_pago == $forma ? 'selected' : '' }}>
-                            {{ $forma }}
+                            {{ __('messages.payment_methods.' . $forma )}}
                         </option>
                     @endforeach
                 </select>
