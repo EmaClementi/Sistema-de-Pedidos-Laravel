@@ -1,4 +1,4 @@
-function mostrarModalConfirmacion(mensaje, formId) {
+function mostrarModalConfirmacion(mensaje, pedidoId) {
     var modalBody = document.querySelector('#modalConfirmacion .modal-body');
     var modal = document.getElementById('modalConfirmacion');
     
@@ -8,6 +8,7 @@ function mostrarModalConfirmacion(mensaje, formId) {
     bootstrapModal.show();
 
     document.getElementById('confirmarEliminacion').onclick = function() {
-        document.querySelector(formId).submit();
+        document.querySelector(`#formEliminarPedido-${pedidoId}`).submit();
     };
 }
+

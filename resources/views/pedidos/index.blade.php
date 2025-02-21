@@ -58,12 +58,14 @@
                                                     </a>
                         <a href="{{route('pedidos.edit', $pedido->id)}}" class="btn btn-warning btn-sm">{{ __('messages.modify')}}</a>
 
-                        <form action="{{ route('pedidos.destroy', $pedido->id) }}" method="POST" id="formEliminarPedido" class="d-inline-block">
+                        <form action="{{ route('pedidos.destroy', $pedido->id) }}" method="POST" id="formEliminarPedido-{{ $pedido->id }}" class="d-inline-block">
+
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.order')]) }}', '#formEliminarPedido')">
+                            <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.order')]) }}', {{ $pedido->id }})">
                                 {{ __('messages.delete') }}
                             </button>
+                            
                         </form>
                         
                     

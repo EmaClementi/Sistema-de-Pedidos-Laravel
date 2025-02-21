@@ -18,7 +18,7 @@
                 <p><strong>{{ __('messages.date')}}:</strong> {{$pedido->fecha}}</p>
                 <p><strong>{{ __('messages.payment_method')}}:</strong> {{ __('messages.payment_methods.' . $pedido->forma_de_pago) }}</p>
                 <p><strong>{{ __('messages.total')}}:</strong> {{ $pedido->total }}</p>
-                <p><strong>{{ __('messages.status')}}:</strong> {{ $pedido->estado }}</p>
+                <p><strong>{{ __('messages.status')}}:</strong> {{ __('messages.status_options.' . $pedido->estado) }}</p>
 
                 <table class="table table-fixed">
                     <thead>
