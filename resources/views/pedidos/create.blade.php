@@ -41,9 +41,9 @@
             <div class="form-group">
                 <label for="forma_de_pago">{{ __('messages.payment_method')}}:</label>
                 <select class="form-control" name="forma_de_pago" id="forma_de_pago">
-                    <option value="Efectivo">{{ __('messages.cash')}}</option>
-                    <option value="Transferencia">{{ __('messages.transfer')}}</option>
-                    <option value="Tarjeta">{{ __('messages.card')}}</option>
+                    <option value="cash">{{ __('messages.cash')}}</option>
+                    <option value="bank_transfer">{{ __('messages.transfer')}}</option>
+                    <option value="credit_card">{{ __('messages.card')}}</option>
                 </select>
             </div> 
         </div>

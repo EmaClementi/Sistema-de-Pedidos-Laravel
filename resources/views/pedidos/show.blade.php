@@ -16,7 +16,7 @@
             <div class="card-body">
                 <p><strong>{{ __('messages.client_name')}}:</strong> {{ $pedido->cliente->nombre }}</p>
                 <p><strong>{{ __('messages.date')}}:</strong> {{$pedido->fecha}}</p>
-                <p><strong>{{ __('messages.payment_method')}}:</strong> {{$pedido->forma_de_pago }}</p>
+                <p><strong>{{ __('messages.payment_method')}}:</strong> {{ __('messages.payment_methods.' . $pedido->forma_de_pago) }}</p>
                 <p><strong>{{ __('messages.total')}}:</strong> {{ $pedido->total }}</p>
                 <p><strong>{{ __('messages.status')}}:</strong> {{ $pedido->estado }}</p>
 
