@@ -40,12 +40,14 @@
                         <td>
                             <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning btn-sm">{{ __('messages.edit')}}</a>
                             
-                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" id="formEliminarCliente" class="d-inline-block">
+                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" id="formEliminarCliente-{{ $cliente->id }}" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.client')]) }}', '#formEliminarCliente')">
+                                <button type="button" class="btn btn-danger btn-sm" 
+                                    onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.client')]) }}', 'Cliente', {{ $cliente->id }})">
                                     {{ __('messages.delete') }}
                                 </button>
+                            
                             </form>
                             
                         

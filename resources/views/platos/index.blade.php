@@ -29,12 +29,14 @@
                             <td>
                                 <a href="{{ route('platos.edit', $plato->id) }}" class="btn btn-warning btn-sm">{{ __('messages.edit')}}</a>
 
-                                <form action="{{ route('platos.destroy', $plato->id) }}" method="POST" id="formEliminarPlato" class="d-inline-block">
+                                <form action="{{ route('platos.destroy', $plato->id) }}" method="POST" id="formEliminarPlato-{{ $plato->id }}" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.dish')]) }}', '#formEliminarPlato')">
+                                    <button type="button" class="btn btn-danger btn-sm" 
+                                        onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.dish')]) }}', 'Plato', {{ $plato->id }})">
                                         {{ __('messages.delete') }}
                                     </button>
+                                
                                 </form>
                                 
                             

@@ -62,9 +62,11 @@
 
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn btn-danger btn-sm" onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.order')]) }}', {{ $pedido->id }})">
+                            <button type="button" class="btn btn-danger btn-sm" 
+                                onclick="mostrarModalConfirmacion('{{ __('messages.delete_confirmation', ['item' => __('messages.order')]) }}', 'Pedido', {{ $pedido->id }})">
                                 {{ __('messages.delete') }}
                             </button>
+
                             
                         </form>
                         

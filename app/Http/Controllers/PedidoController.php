@@ -53,7 +53,7 @@ class PedidoController extends Controller
             'fecha' => $request->fecha,
             'forma_de_pago' => $request->forma_de_pago,
             'total' => 0,
-            'estado' => 'En Proceso',
+            'estado' => 'en_proceso',
         ]);
 
         // $pedido = new Pedido();
