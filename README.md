@@ -42,21 +42,21 @@ El proyecto usa un middleware propio (`LocaleMiddleware`) que lee el idioma de l
 
 ### Pasos
 
-# 1. Clonar el repositorio
+**Clonar el repositorio**
 git clone https://github.com/EmaClementi/Sistema-de-Pedidos-Laravel.git
 cd sistema-de-pedidos-laravel
 
-# 2. Instalar dependencias PHP
+**Instalar dependencias PHP**
 composer install
 
-# 3. Instalar dependencias JS
+**Instalar dependencias**
 npm install && npm run build
 
-# 4. Copiar y configurar el archivo de entorno
+**Copiar y configurar el archivo de entorno**
 cp .env.example .env
 php artisan key:generate
 
-# 5. Configurar la base de datos en .env
+**Configurar la base de datos en .env**
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -64,10 +64,10 @@ DB_DATABASE=sistema_pedidos
 DB_USERNAME=tu_usuario
 DB_PASSWORD=tu_password
 
-# 6. Ejecutar migraciones y seeders
+**Ejecutar migraciones y seeders**
 php artisan migrate:fresh --seed
 
-# 7. Iniciar el servidor
+**Iniciar el servidor**
 php artisan serve
 
 Accedé a [http://localhost:8000](http://localhost:8000)
@@ -76,13 +76,13 @@ Accedé a [http://localhost:8000](http://localhost:8000)
 
 El proyecto incluye migraciones para todas las tablas y seeders con datos de ejemplo.
 
-# Crear tablas y cargar datos de ejemplo
+**Crear tablas y cargar datos de ejemplo**
 php artisan migrate:fresh --seed
 
-# Solo migraciones sin datos
+**Solo migraciones sin datos**
 php artisan migrate
 
-# Solo seeders (tablas ya existentes)
+**Solo seeders (tablas ya existentes)**
 php artisan db:seed
 
 ---
