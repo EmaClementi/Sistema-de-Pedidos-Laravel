@@ -1,38 +1,20 @@
-FROM php:8.2-fpm-alpine
-
-# Instalar dependencias del sistema
-RUN apk add --no-cache \
-    postgresql-dev \
-    nodejs \
-    npm \
-    curl \
-    zip \
-    unzip
-
-# Instalar extensiones PHP necesarias
-RUN docker-php-ext-install pdo pdo_pgsql
-
-# Instalar Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-WORKDIR /var/www/html
+FROM richarvey/nginx-php-fpm:3.1.6
 
 COPY . .
 
-# Instalar dependencias PHP
-RUN composer install --no-dev --optimize-autoloader
+# Configuración de imagen
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
 
-# Instalar y compilar assets
-RUN npm install && npm run build
+# Configuración Laravel
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
 
-# Permisos
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Permitir composer como root
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
-EXPOSE 8000
-
-CMD php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache && \
-    php artisan migrate --force && \
-    php artisan db:seed --force && \
-    php artisan serve --host=0.0.0.0 --port=8000
+CMD ["/start.sh"]
