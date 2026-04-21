@@ -104,7 +104,7 @@ php artisan db:seed
 ---
 
 ## Estructura del proyecto
-
+````
 ├── app/
 │   ├── Http/
 │   │   ├── Controllers/
@@ -135,7 +135,7 @@ php artisan db:seed
     └── js/
 
 
-
+````
 ## Autores
 
 Desarrollado por **Emanuel Clementi** y **Virginia Cifarelli** para las asiganturas POO y EDI3 de la Tecnicatura Superior en Analisis, Desarrollo y Programacion de Aplicaciones
