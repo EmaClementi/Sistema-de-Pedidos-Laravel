@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-
-echo "Instalando dependencias..."
+echo "Running composer"
+composer global require hirak/prestissimo
 composer install --no-dev --working-dir=/var/www/html
 
-echo "Cacheando config..."
+echo "Caching config..."
 php artisan config:cache
 
-echo "Cacheando rutas..."
+echo "Caching routes..."
 php artisan route:cache
 
-echo "Ejecutando migraciones..."
+echo "Running migrations..."
 php artisan migrate --force
